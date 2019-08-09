@@ -10,6 +10,7 @@
             <Cards />
           </v-flex>
           <v-flex xs12 md12 lg4>
+            <Profiles />
             <Maps />
           </v-flex>
         </v-layout>
@@ -21,6 +22,7 @@
 <script>
 import Filters from "./components/Filters";
 import Cards from "./components/Cards";
+import Profiles from "./components/Profiles";
 import Maps from "./components/Maps";
 
 export default {
@@ -28,6 +30,7 @@ export default {
   components: {
     Filters,
     Cards,
+    Profiles,
     Maps
   },
   data: () => ({
