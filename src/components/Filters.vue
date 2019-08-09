@@ -1,10 +1,10 @@
 <template>
   <v-card class="mx-1 mt-12">
-    <v-card-text>
+    <v-card-text width="1">
       <h2 class="title mb-2">Grades</h2>
 
       <v-chip-group column multiple>
-        <v-chip v-for="grade in grades" :key="grade" filter outlined color="primary">{{ grade }}</v-chip>
+        <v-chip v-for="grade in grades" :key="grade" outlined color="primary">{{ grade }}</v-chip>
       </v-chip-group>
     </v-card-text>
 
@@ -20,7 +20,7 @@
       <h2 class="title mb-2">Public Transportation Options</h2>
 
       <v-chip-group column multiple>
-        <v-chip v-for="transportOption in transportOptions" :key="transportOption" filter outlined color="primary">{{ transportOption }}</v-chip>
+        <v-chip v-for="transportOption in transportOptions" :key="transportOption" outlined color="primary">{{ transportOption }}</v-chip>
       </v-chip-group>
     </v-card-text>
 
@@ -28,7 +28,7 @@
       <h2 class="title mb-2">Locations</h2>
 
       <v-chip-group column multiple>
-        <v-chip v-for="neighborhood in neighborhoods" :key="neighborhood" filter outlined color="primary">{{ neighborhood }}</v-chip>
+        <v-chip v-for="neighborhood in neighborhoods" :key="neighborhood" outlined color="primary">{{ neighborhood }}</v-chip>
       </v-chip-group>
     </v-card-text>
   </v-card>

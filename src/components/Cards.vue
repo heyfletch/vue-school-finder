@@ -8,7 +8,7 @@
               <v-card :color="active ? 'primary' : ''" @click="toggle" class="mb-2">
                 <v-list-item one-line>
                   <v-list-item-content class="align-self-start pb-0">
-                    <v-list-item-title class="headline" v-text="item.title"></v-list-item-title>
+                    <v-card-title class="headline pa-0" v-text="item.title"></v-card-title>
 
                     <v-layout pb-2 pl-1>
                       <v-card-text class="px-0 py-3" v-text="item.description"></v-card-text>
@@ -38,7 +38,14 @@ export default {
           "https://enrollwcc.org/wp-content/uploads/2018/08/summit-public-school-tamalpais-300x169.jpg",
         title: "Summit Public School Tamalpais",
         description:
-          "Summit Public Schools’ mission is to prepare a diverse student population for success in college and to be thoughtful, contributing members of society."
+          "Our mission is to prepare a diverse student population for success in college and to be thoughtful, contributing members of society."
+      },
+      {
+        src:
+          "https://enrollwcc.org/wp-content/uploads/2018/08/Aspire-Richmond-California-300x169.jpg",
+        title: "Aspire Richmond California College Prepatory Academy",
+        description:
+          "Ensure that all young people have the knowledge and skills to thrive in college and society so that they will solve the challenges our communities face today and tomorrow."
       },
       {
         src:
