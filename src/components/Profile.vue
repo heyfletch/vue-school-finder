@@ -45,7 +45,7 @@
 
     <v-card-actions>
       <v-btn text color="primary">Learn More</v-btn>
-      <v-btn text color="primary">Apply Now</v-btn>
+      <v-btn href="https://enrollwcc.org/apply/" text color="primary">Apply Now</v-btn>
     </v-card-actions>
   </v-card>
 </template>
