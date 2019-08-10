@@ -1,7 +1,7 @@
 <template>
   <v-card class="mx-1 mt-12">
     <v-item-group>
-      <v-container class="pa-2" fluid grid-list-md>
+      <v-container class="pa-2 pb-0" fluid grid-list-md>
         <v-layout wrap>
           <v-flex v-for="(item, i) in items" :key="i">
             <v-item v-slot:default="{ active, toggle }">
