@@ -4,9 +4,10 @@
     max-width="400"
   >
     <v-img
-      class="white--text"
+      class="white--text primary"
       height="200px"
       src="https://enrollwcc.org/wp-content/uploads/2018/08/Aspire-Richmond-California.jpg"
+      gradient="to bottom, rgba(35, 82, 144, 0.1), rgba(35, 82, 144, 0.7)"
     >
       <v-card-title class="align-end fill-height">Aspire Richmond California College Prepatory Academy</v-card-title>
     </v-img>
