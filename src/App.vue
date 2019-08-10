@@ -7,10 +7,10 @@
             <Filters />
           </v-flex>
           <v-flex xs12 md6 lg4>
-            <Cards />
+            <SchoolsList />
           </v-flex>
           <v-flex xs12 md12 lg4>
-            <Profiles />
+            <Profile />
             <Maps />
           </v-flex>
         </v-layout>
@@ -21,16 +21,16 @@
 
 <script>
 import Filters from "./components/Filters";
-import Cards from "./components/Cards";
-import Profiles from "./components/Profiles";
+import SchoolsList from "./components/SchoolsList";
+import Profile from "./components/Profile";
 import Maps from "./components/Maps";
 
 export default {
   name: "App",
   components: {
     Filters,
-    Cards,
-    Profiles,
+    SchoolsList,
+    Profile,
     Maps
   },
   data: () => ({
