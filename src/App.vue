@@ -15,6 +15,13 @@
           </v-flex>
         </v-layout>
       </v-container>
+      <v-container>
+        <v-layout wrap>
+          <v-flex xs12>
+            <Acf />
+          </v-flex>
+        </v-layout>
+      </v-container>
     </v-content>
   </v-app>
 </template>
@@ -24,6 +31,7 @@ import Filters from "./components/Filters";
 import SchoolsList from "./components/SchoolsList";
 import Profile from "./components/Profile";
 import Maps from "./components/Maps";
+import Acf from "./components/Acf";
 
 export default {
   name: "App",
@@ -31,7 +39,8 @@ export default {
     Filters,
     SchoolsList,
     Profile,
-    Maps
+    Maps,
+    Acf
   },
   data: () => ({
     //
