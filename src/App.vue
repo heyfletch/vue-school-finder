@@ -18,7 +18,7 @@
       <v-container>
         <v-layout wrap>
           <v-flex xs12>
-            <Acf />
+            <Schools />
           </v-flex>
         </v-layout>
       </v-container>
@@ -31,7 +31,7 @@ import Filters from "./components/Filters";
 import SchoolsList from "./components/SchoolsList";
 import Profile from "./components/Profile";
 import Maps from "./components/Maps";
-import Acf from "./components/Acf";
+import Schools from "./components/Schools";
 
 export default {
   name: "App",
@@ -40,7 +40,7 @@ export default {
     SchoolsList,
     Profile,
     Maps,
-    Acf
+    Schools
   },
   data: () => ({
     //

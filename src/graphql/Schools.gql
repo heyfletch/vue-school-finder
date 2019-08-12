@@ -1,0 +1,15 @@
+{
+  schools {
+    nodes {
+      id
+      title
+      uri
+      acfSchoolProfiles {
+        schoolAddress
+        schoolPhoneNumber
+        schoolGrades
+        schoolHours
+      }
+    }
+  }
+}
