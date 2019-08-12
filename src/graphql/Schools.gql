@@ -1,5 +1,5 @@
-{
-  schools {
+query getAllSchools {
+  schools(where: { language: EN }) {
     nodes {
       id
       title
@@ -9,6 +9,11 @@
         schoolPhoneNumber
         schoolGrades
         schoolHours
+        schoolZip
+      }
+      language {
+        id
+        name
       }
     }
   }
