@@ -3,7 +3,7 @@ query getAllSchools {
     nodes {
       id
       title
-      uri
+      link
       acf {
         schoolAddress
         schoolPhoneNumber

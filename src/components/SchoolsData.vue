@@ -26,7 +26,7 @@ export default {
           nodes {
             id
             title
-            uri
+            link
             featuredImage {
               sourceUrl(size: MEDIUM_LARGE)
             }
