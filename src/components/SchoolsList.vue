@@ -8,17 +8,17 @@
               <v-card :color="active ? 'primary' : ''" @click="toggle" class="mb-2">
                 <v-list-item>
                   <v-list-item-content class="align-self-start pb-0">
-                    <h4 class="subtitle-2" v-html="school.title"></h4>
+                    <h4 class="subtitle-1" v-html="school.title"></h4>
 
                     <v-layout pb-2 pl-1>
+                      <v-list-item-avatar size="80" color="primary">
+                        <v-img :src="school.featuredImage.sourceUrl"></v-img>
+                      </v-list-item-avatar>
+
                       <v-card-text
                         class="body-2 px-0 py-3"
                         v-html="school.acfSchoolProfiles.schoolIntro"
                       ></v-card-text>
-
-                      <v-list-item-avatar tile size="125" color="primary">
-                        <v-img :src="school.featuredImage.sourceUrl"></v-img>
-                      </v-list-item-avatar>
                     </v-layout>
                   </v-list-item-content>
                 </v-list-item>
@@ -100,7 +100,7 @@ export default {
 </script>
 
 <style scoped>
-.v-card__text.body-2 {
-  /* line-height: 1.4; */
+.v-list-item__avatar .v-responsive.v-image {
+  border-radius: 4px;
 }
 </style>
