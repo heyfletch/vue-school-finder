@@ -11,8 +11,8 @@
                     <h4 class="subtitle-1" v-html="school.title"></h4>
 
                     <v-layout pb-3 pl-1>
-                      <v-list-item-avatar class="mr-4" size="80" color="primary">
-                        <v-img :src="school.featuredImage.sourceUrl"></v-img>
+                      <v-list-item-avatar class="mr-4" size="80">
+                        <v-img :src="school.featuredImage.sourceUrl" gradient="to bottom, rgba(35, 82, 144, 0.25), rgba(35, 82, 144, 0.25)"></v-img>
                       </v-list-item-avatar>
 
                       <v-card-text
