@@ -8,17 +8,20 @@
               <v-card :color="active ? 'primary' : ''" @click="toggle" class="mb-1">
                 <v-list-item>
                   <v-list-item-content class="align-self-start pb-0">
-                    <h4 class="subtitle-1" v-html="school.title"></h4>
-
                     <v-layout pb-3 pl-1>
-                      <v-list-item-avatar class="mr-4" size="80">
-                        <v-img :src="school.featuredImage.sourceUrl" gradient="to bottom, rgba(35, 82, 144, 0.25), rgba(35, 82, 144, 0.25)"></v-img>
+                      <v-list-item-avatar class="mr-5" size="80">
+                        <v-img
+                          :src="school.featuredImage.sourceUrl"
+                          gradient="to bottom, rgba(35, 82, 144, 0.25), rgba(35, 82, 144, 0.25)"
+                        ></v-img>
                       </v-list-item-avatar>
-
-                      <v-card-text
-                        class="body-2 px-0 py-1"
-                        v-html="school.acf.schoolIntro"
-                      ></v-card-text>
+                      <v-layout class="mt-2" column>
+                        <h4 class="subtitle-1" v-html="school.title"></h4>
+                        <v-card-text class="body-2 px-0 py-1">
+                          <div>{{ school.acf.schoolAddress }}</div>
+                          <div>{{ school.acf.schoolCity }}, CA {{ school.acf.schoolZip }}</div>
+                        </v-card-text>
+                      </v-layout>
                     </v-layout>
                   </v-list-item-content>
                 </v-list-item>
@@ -80,5 +83,8 @@ export default {
 }
 .v-list-item__avatar .v-responsive.v-image {
   border-radius: 4px;
+}
+.v-application .subtitle-1 {
+  line-height: 1.4rem;
 }
 </style>

@@ -109,3 +109,8 @@ export default {
 };
 </script>
 
+<style scoped>
+.v-application .subtitle-1 {
+  line-height: 1.4rem;
+}
+</style>
