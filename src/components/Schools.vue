@@ -1,10 +1,12 @@
 <template>
   <v-card>
     <v-card-text>
-      <h2>Schools</h2>
+      <h2>School Data - For Development Reference Only</h2>
 
       <v-chip-group column multiple>
-        <v-chip v-for="school in schools.nodes" :key="school.id">{{ school.title }}</v-chip>
+        <v-chip v-for="school in schools.nodes" :key="school.id">
+          <span v-html="school.title"></span>
+        </v-chip>
       </v-chip-group>
     </v-card-text>
   </v-card>
