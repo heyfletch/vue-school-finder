@@ -9,25 +9,28 @@
                 <v-list-item>
                   <v-list-item-content class="align-self-start pb-0">
                     <v-layout pb-3 pl-1>
-                      <v-list-item-avatar class="mr-5" size="80">
+                      <v-list-item-avatar class="mr-5" size="90">
                         <v-img
                           :src="school.featuredImage.sourceUrl"
                           gradient="to bottom, rgba(35, 82, 144, 0.25), rgba(35, 82, 144, 0.25)"
                         ></v-img>
                       </v-list-item-avatar>
                       <v-layout class="mt-2" column>
-                        <h4 class="subtitle-1" v-html="school.title"></h4>
-                        <v-card-text class="body-2 px-0 py-1">
+                        <h4 class="title" v-html="school.title"></h4>
+                        <v-card-text class="body-2 px-0 pt-0 pb-2">
                           <div>{{ school.acf.schoolAddress }}</div>
                           <div>{{ school.acf.schoolCity }}, CA {{ school.acf.schoolZip }}</div>
                         </v-card-text>
 
-                        <div>
-                          <span>Grades {{ school.acf.schoolGrades[0] }} - {{ school.acf.schoolGrades.pop() }}, </span>
+                        <div class="pb-3">
+                          <span>Grades {{ school.acf.schoolGrades[0] }} - {{ school.acf.schoolGrades[school.acf.schoolGrades.length - 1] }}, </span>
 
-                          <span class="text--primary">Uniforms: </span>
-                          <span v-if="school.acf.schoolUniforms">Yes</span>
-                          <span v-else>No</span>
+                          <span v-if="school.acf.schoolUniforms">Uniforms</span>
+                          <span v-else>No Uniforms</span>
+
+                          <span v-if="school.acf.schoolBeforeHours && school.acf.schoolAfterHours">, Before & After Care</span>
+                          <span v-else-if="school.acf.schoolBeforeHours">, Before Care</span>
+                          <span v-else-if="school.acf.schoolAfterHours">, After Care</span>
 
                         </div>
                       </v-layout>
@@ -93,7 +96,8 @@ export default {
 .v-list-item__avatar .v-responsive.v-image {
   border-radius: 4px;
 }
-.v-application .subtitle-1 {
+.v-application .title {
+  font-size: 1rem !important;
   line-height: 1.4rem;
 }
 </style>
