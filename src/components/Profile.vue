@@ -3,7 +3,7 @@
     <v-container class="pa-1 pb-0">
       <v-layout wrap>
         <v-flex v-for="school in schools.nodes" :key="school.id">
-          <v-card class="mx-1 mt-12">
+          <v-card class="mx-1 mt-11">
             <v-img
               class="white--text primary"
               height="200px"
@@ -23,33 +23,40 @@
               </v-card-title>
             </v-img>
 
-            <v-card-text>
+            <v-card-text class="pb-0">
               <h5 class="text--primary">Mission</h5>
               <p class="mb-2">{{ school.acf.schoolIntro }}</p>
               <div>
-                <span class="text--primary">Grades Served:</span>
-                <span>TK, K, 1, 2, 3, 4, 5</span>
+                <span class="text--primary">Grades Served: </span>
+                <span>{{ school.acf.schoolGrades.join(', ') }}</span>
               </div>
               <div>
-                <span class="text--primary">Uniform:</span>
-                <span>Yes</span>
+                <span class="text--primary">Uniform: </span>
+                <span v-if="school.acf.schoolUniforms">Yes</span>
+                <span v-else>No</span>
               </div>
               <div>
-                <span class="text--primary">Public Transport:</span>
-                <span>72, 72M, 74, 76, 376, 681, BART</span>
+                <span class="text--primary">Public Transport: </span>
+                <span>{{ school.acf.schoolTransportation.join(', ') }}</span>
               </div>
               <div>
-                <span class="text--primary">Enrollment Size:</span>
-                <span>341</span>
+                <span class="text--primary">Enrollment Size: </span>
+                <span>{{ school.acf.schoolEnrollment }}</span>
               </div>
               <div>
-                <span class="text--primary">Extended Care:</span>
-                <span>Before Care, After Care</span>
+                <span class="text--primary">Before Care: </span>
+                <span v-if="school.acf.schoolBeforeHours">{{ school.acf.schoolBeforeHours }}</span>
+                <span v-else>None</span>
+              </div>
+              <div>
+                <span class="text--primary">After Care: </span>
+                <span v-if="school.acf.schoolAfterHours">{{ school.acf.schoolAfterHours }}</span>
+                <span v-else>None</span>
               </div>
             </v-card-text>
 
             <v-card-actions>
-              <v-btn text color="primary">Learn More</v-btn>
+              <v-btn :href="school.link" text color="primary">Learn More</v-btn>
               <v-btn href="https://enrollwcc.org/apply/" text color="primary">Apply Now</v-btn>
             </v-card-actions>
           </v-card>
