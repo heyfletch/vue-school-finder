@@ -6,12 +6,15 @@
           <v-flex v-for="school in schools.nodes" :key="school.id">
             <v-item v-slot:default="{ active, toggle }">
               <v-card :color="active ? 'primary' : ''" @click="toggle" class="mb-2">
-                <v-list-item one-line>
+                <v-list-item>
                   <v-list-item-content class="align-self-start pb-0">
-                    <h4 v-html="school.title"></h4>
+                    <h4 class="subtitle-2" v-html="school.title"></h4>
 
                     <v-layout pb-2 pl-1>
-                      <v-card-text class="px-0 py-3" v-html="school.acfSchoolProfiles.schoolIntro"></v-card-text>
+                      <v-card-text
+                        class="body-2 px-0 py-3"
+                        v-html="school.acfSchoolProfiles.schoolIntro"
+                      ></v-card-text>
 
                       <v-list-item-avatar tile size="125" color="primary">
                         <v-img :src="school.featuredImage.sourceUrl"></v-img>
@@ -95,3 +98,9 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.v-card__text.body-2 {
+  /* line-height: 1.4; */
+}
+</style>
