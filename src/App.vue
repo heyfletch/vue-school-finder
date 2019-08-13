@@ -18,7 +18,7 @@
       <v-container>
         <v-layout wrap>
           <v-flex xs12>
-            <Schools />
+            <SchoolsData />
           </v-flex>
         </v-layout>
       </v-container>
@@ -30,8 +30,8 @@
 import Filters from "./components/Filters";
 import SchoolsList from "./components/SchoolsList";
 import Profile from "./components/Profile";
-import Maps from "./components/Maps";
-import Schools from "./components/Schools";
+// import Maps from "./components/Maps";
+import SchoolsData from "./components/SchoolsData";
 
 export default {
   name: "App",
@@ -39,8 +39,8 @@ export default {
     Filters,
     SchoolsList,
     Profile,
-    Maps,
-    Schools
+    // Maps,
+    SchoolsData
   },
   data: () => ({
     //

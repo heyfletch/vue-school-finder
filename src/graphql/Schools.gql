@@ -4,7 +4,7 @@ query getAllSchools {
       id
       title
       uri
-      acfSchoolProfiles {
+      acf {
         schoolAddress
         schoolPhoneNumber
         schoolGrades

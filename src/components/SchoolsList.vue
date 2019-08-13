@@ -17,7 +17,7 @@
 
                       <v-card-text
                         class="body-2 px-0 py-1"
-                        v-html="school.acfSchoolProfiles.schoolIntro"
+                        v-html="school.acf.schoolIntro"
                       ></v-card-text>
                     </v-layout>
                   </v-list-item-content>
@@ -50,46 +50,21 @@ export default {
               id
               name
             }
-            acfSchoolProfiles {
-              schoolAbsenteeism
+            acf {
               schoolAddress
               schoolAfterHours
-              schoolAsian
               schoolBeforeHours
-              schoolBlack
               schoolCity
-              schoolDisadvantaged
-              schoolEnglish
               schoolEnrollment
-              schoolGraduation
-              schoolLatino
               schoolNeighborhood
-              schoolOther
-              schoolPhoneNumber
               schoolPrincipal
-              schoolSbacEnglishExceeded
-              schoolSbacEnglishMet
-              schoolSbacEnglishNearlyMet
-              schoolSbacEnglishNotMet
-              schoolSbacMathExceeded
-              schoolSbacMathMet
-              schoolSbacMathNearlyMet
-              schoolSbacMathNotMet
-              schoolSpecialEducation
-              schoolSuspension
-              schoolUcCsu
               schoolUniforms
               schoolUrl
-              schoolWhite
               schoolZip
               schoolGrades
               schoolTransportation
               schoolHours
               schoolIntro
-              schoolCurriculum
-              schoolCulture
-              schoolPrograms
-              schoolEnrollmentPriorities
             }
           }
         }

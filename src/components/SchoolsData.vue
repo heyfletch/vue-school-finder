@@ -3,11 +3,14 @@
     <v-card-text>
       <h2>School Data - For Development Reference Only</h2>
 
-      <v-chip-group column multiple>
+      <div>
+        {{ schools }}
+      </div>
+      <!-- <v-chip-group column multiple>
         <v-chip v-for="school in schools.nodes" :key="school.id">
           <span v-html="school.title"></span>
         </v-chip>
-      </v-chip-group>
+      </v-chip-group> -->
     </v-card-text>
   </v-card>
 </template>
@@ -24,16 +27,28 @@ export default {
             id
             title
             uri
-            acfSchoolProfiles {
-              schoolAddress
-              schoolPhoneNumber
-              schoolGrades
-              schoolHours
-              schoolZip
+            featuredImage {
+              sourceUrl(size: MEDIUM_LARGE)
             }
             language {
               id
               name
+            }
+            acf {
+              schoolAddress
+              schoolAfterHours
+              schoolBeforeHours
+              schoolCity
+              schoolEnrollment
+              schoolNeighborhood
+              schoolPrincipal
+              schoolUniforms
+              schoolUrl
+              schoolZip
+              schoolGrades
+              schoolTransportation
+              schoolHours
+              schoolIntro
             }
           }
         }
