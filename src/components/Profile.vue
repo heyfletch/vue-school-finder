@@ -31,7 +31,7 @@
                 <span>{{ school.acf.schoolGrades.join(', ') }}</span>
               </div>
               <div>
-                <span class="text--primary">Uniform: </span>
+                <span class="text--primary">Uniforms: </span>
                 <span v-if="school.acf.schoolUniforms">Yes</span>
                 <span v-else>No</span>
               </div>

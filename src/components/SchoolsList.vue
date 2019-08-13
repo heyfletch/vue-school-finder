@@ -21,6 +21,15 @@
                           <div>{{ school.acf.schoolAddress }}</div>
                           <div>{{ school.acf.schoolCity }}, CA {{ school.acf.schoolZip }}</div>
                         </v-card-text>
+
+                        <div>
+                          <span>Grades {{ school.acf.schoolGrades[0] }} - {{ school.acf.schoolGrades.pop() }}, </span>
+
+                          <span class="text--primary">Uniforms: </span>
+                          <span v-if="school.acf.schoolUniforms">Yes</span>
+                          <span v-else>No</span>
+
+                        </div>
                       </v-layout>
                     </v-layout>
                   </v-list-item-content>
