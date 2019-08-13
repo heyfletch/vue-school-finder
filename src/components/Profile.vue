@@ -36,7 +36,7 @@
                 <span v-else>No</span>
               </div>
               <div>
-                <span class="text--primary">Public Transport: </span>
+                <span class="text--primary">Public Transportation Options: </span>
                 <span>{{ school.acf.schoolTransportation.join(', ') }}</span>
               </div>
               <div>
