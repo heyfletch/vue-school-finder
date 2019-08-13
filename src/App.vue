@@ -11,7 +11,7 @@
           </v-flex>
           <v-flex xs12 md12 lg4>
             <Profile />
-            <Maps />
+            <!-- <Maps /> -->
           </v-flex>
         </v-layout>
       </v-container>
