@@ -5,7 +5,7 @@
         <v-layout wrap>
           <v-flex v-for="school in schools.nodes" :key="school.id">
             <v-item v-slot:default="{ active, toggle }">
-              <v-card :color="active ? 'primary' : ''" @click="toggle" class="mb-2">
+              <v-card :color="active ? 'primary' : ''" @click="toggle" class="mb-1">
                 <v-list-item>
                   <v-list-item-content class="align-self-start pb-0">
                     <h4 class="subtitle-1" v-html="school.title"></h4>

@@ -3,10 +3,10 @@
     <v-content>
       <v-container grid-list-md>
         <v-layout wrap>
-          <v-flex sm12 md6 lg4>
+          <v-flex xs12 sm4 md5 lg3>
             <Filters />
           </v-flex>
-          <v-flex xs12 md6 lg4>
+          <v-flex xs12 sm8 md7 lg5>
             <SchoolsList />
           </v-flex>
           <v-flex xs12 md12 lg4>
