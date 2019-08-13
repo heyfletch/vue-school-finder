@@ -9,7 +9,7 @@
     </v-card-text>
 
     <v-card-text>
-      <h2 class="title mb-2">Extended Care Options</h2>
+      <h2 class="title mb-2">Extended Care Needs</h2>
 
       <v-chip-group column multiple>
         <v-chip v-for="careOption in careOptions" :key="careOption" outlined small color="primary">{{ careOption }}</v-chip>
@@ -17,7 +17,7 @@
     </v-card-text>
 
     <v-card-text>
-      <h2 class="title mb-2">Public Transportation Options</h2>
+      <h2 class="title mb-2">Public Transportation</h2>
 
       <v-chip-group column multiple>
         <v-chip v-for="transportOption in transportOptions" :key="transportOption" outlined small color="primary">{{ transportOption }}</v-chip>
