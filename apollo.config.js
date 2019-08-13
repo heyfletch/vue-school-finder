@@ -3,7 +3,7 @@ module.exports = {
     service: {
       name: "school-finder",
       // URL to the GraphQL API
-      url: "https://enrolldev.local/graphql"
+      url: "https://enrollwcc.kinsta.cloud/graphql"
     },
     // Files processed by the extension
     includes: ["src/**/*.vue", "src/**/*.js"]
