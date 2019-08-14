@@ -23,15 +23,16 @@
                         </v-card-text>
 
                         <div class="pb-3">
-                          <span>Grades {{ school.acf.schoolGrades[0] }} - {{ school.acf.schoolGrades[school.acf.schoolGrades.length - 1] }}, </span>
+                          <span>Grades {{ school.acf.schoolGrades[0] }} - {{ school.acf.schoolGrades[school.acf.schoolGrades.length - 1] }},</span>
 
                           <span v-if="school.acf.schoolUniforms">Uniforms</span>
                           <span v-else>No Uniforms</span>
 
-                          <span v-if="school.acf.schoolBeforeHours && school.acf.schoolAfterHours">, Before & After Care</span>
+                          <span
+                            v-if="school.acf.schoolBeforeHours && school.acf.schoolAfterHours"
+                          >, Before & After Care</span>
                           <span v-else-if="school.acf.schoolBeforeHours">, Before Care</span>
                           <span v-else-if="school.acf.schoolAfterHours">, After Care</span>
-
                         </div>
                       </v-layout>
                     </v-layout>
@@ -53,7 +54,7 @@ export default {
   apollo: {
     schools: gql`
       query getSchools {
-        schools(where: { language: EN }) {
+        schools(where: { language: ALL }, first: 100) {
           nodes {
             id
             title

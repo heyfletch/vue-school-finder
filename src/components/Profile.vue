@@ -73,7 +73,7 @@ export default {
   apollo: {
     schools: gql`
       query getSchools {
-        schools(where: { language: EN }) {
+        schools(where: { language: ALL }, first: 100) {
           nodes {
             id
             title
@@ -104,6 +104,7 @@ export default {
           }
         }
       }
+
     ` //end GGL
   }
 };

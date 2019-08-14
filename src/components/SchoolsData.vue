@@ -21,8 +21,8 @@ import gql from "graphql-tag";
 export default {
   apollo: {
     schools: gql`
-      query getAllSchools {
-        schools(where: {language: EN}) {
+      query getSchools {
+        schools(where: { language: ALL }, first: 100) {
           nodes {
             id
             title
@@ -53,7 +53,7 @@ export default {
           }
         }
       }
-    `
+    `// end gql
   }
 };
 </script>
