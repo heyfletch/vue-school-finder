@@ -19,7 +19,7 @@
                         <h4 class="title" v-html="school.title"></h4>
                         <v-card-text class="body-2 px-0 pt-0 pb-2">
                           <div>{{ school.acf.schoolAddress }}</div>
-                          <div>{{ school.acf.schoolCity }}, CA {{ school.acf.schoolZip }}</div>
+                          <div>{{ school.acf.schoolCity }}, CA {{ school.acf.schoolZip }} [{{ school.language.name }}]</div>
                         </v-card-text>
 
                         <div class="pb-3">
@@ -30,9 +30,10 @@
 
                           <span
                             v-if="school.acf.schoolBeforeHours && school.acf.schoolAfterHours"
-                          >, Before & After Care</span>
+                          >, Before &amp; After Care</span>
                           <span v-else-if="school.acf.schoolBeforeHours">, Before Care</span>
                           <span v-else-if="school.acf.schoolAfterHours">, After Care</span>
+
                         </div>
                       </v-layout>
                     </v-layout>
@@ -50,11 +51,15 @@
 <script>
 import gql from "graphql-tag";
 
+const LANG = document.querySelector("html").lang.toUpperCase();
+
 export default {
   apollo: {
-    schools: gql`
-      query getSchools {
-        schools(where: { language: ALL }, first: 100) {
+    // Query with parameters
+    schools: {
+      // gql query
+      query: gql`query getSchools($language: LanguageCodeFilterEnum!) {
+        schools(where: { language: $language }, first: 100) {
           nodes {
             id
             title
@@ -84,10 +89,13 @@ export default {
             }
           }
         }
-      }
-    ` //end GGL
-  }
-};
+      }`, //end GGL
+      variables: {
+        language: LANG,
+      },
+    },
+  },
+}
 </script>
 
 <style scoped>

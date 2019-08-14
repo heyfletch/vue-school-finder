@@ -69,11 +69,15 @@
 <script>
 import gql from "graphql-tag";
 
+const LANG = document.querySelector("html").lang.toUpperCase();
+
 export default {
   apollo: {
-    schools: gql`
-      query getSchools {
-        schools(where: { language: ALL }, first: 100) {
+    // Query with parameters
+    schools: {
+      // gql query
+      query: gql`query getSchools($language: LanguageCodeFilterEnum!) {
+        schools(where: { language: $language }, first: 100) {
           nodes {
             id
             title
@@ -103,11 +107,13 @@ export default {
             }
           }
         }
-      }
-
-    ` //end GGL
-  }
-};
+      }`, //end GGL
+      variables: {
+        language: LANG,
+      },
+    },
+  },
+}
 </script>
 
 <style scoped>
