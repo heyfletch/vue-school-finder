@@ -69,7 +69,8 @@
 <script>
 import gql from "graphql-tag";
 
-const LANG = document.querySelector("html").lang.toUpperCase();
+// Grab the 2 letter ISO code of the current page
+const LANG = document.querySelector("html").lang.slice(0,2).toUpperCase() == "ES" ? "ES" : "EN";
 
 export default {
   apollo: {
