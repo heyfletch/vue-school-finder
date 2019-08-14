@@ -51,7 +51,10 @@
 <script>
 import gql from "graphql-tag";
 
-const LANG = document.querySelector("html").lang.toUpperCase();
+// Grab the page's Language code first 2 characters and capitalize
+const LANG = document.querySelector("html").lang.slice(0,2).toUpperCase();
+
+console.log("HERE IS THE LANG: " + LANG);
 
 export default {
   apollo: {
