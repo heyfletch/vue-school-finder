@@ -89,7 +89,7 @@ export default {
             }
           }
         }
-      }`, //end GGL
+      }`, //end GQL
       variables: {
         language: LANG,
       },
