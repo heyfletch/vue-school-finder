@@ -1,19 +1,31 @@
-query getAllSchools {
-  schools(where: { language: EN }) {
+query getSchools($language: LanguageCodeFilterEnum!) {
+  schools(where: { language: $language }, first: 100) {
     nodes {
       id
       title
       link
-      acf {
-        schoolAddress
-        schoolPhoneNumber
-        schoolGrades
-        schoolHours
-        schoolZip
+      featuredImage {
+        sourceUrl(size: MEDIUM_LARGE)
       }
       language {
         id
         name
+      }
+      acf {
+        schoolAddress
+        schoolAfterHours
+        schoolBeforeHours
+        schoolCity
+        schoolEnrollment
+        schoolNeighborhood
+        schoolPrincipal
+        schoolUniforms
+        schoolUrl
+        schoolZip
+        schoolGrades
+        schoolTransportation
+        schoolHours
+        schoolIntro
       }
     }
   }
