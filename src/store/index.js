@@ -68,7 +68,7 @@ export default new Vuex.Store({
 
         const obj = {
           schools,
-          expires: Date.now() + 1000 * 60 * 60 * 24 * 30, // Expires every month
+          expires: Date.now() + 1000 * 60 * 60 * 24, // Expires in a day
           language: LANG // Let's store this in case it changes.
         }
 
