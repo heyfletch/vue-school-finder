@@ -3,9 +3,9 @@
     <v-item-group>
       <v-container class="pa-1 pb-0">
         <v-layout wrap>
-          <v-flex v-for="school in schools.nodes" :key="school.id">
+          <v-flex v-for="school in schools" :key="school.id">
             <v-item v-slot:default="{ active, toggle }">
-              <v-card :color="active ? 'primary' : ''" @click="toggle" class="mb-1">
+              <v-card :color="selected(school) ? 'secondary' : ''" @click="selectSchool(school)" class="mb-1">
                 <v-list-item>
                   <v-list-item-content class="align-self-start pb-0">
                     <v-layout pb-3 pl-1>
@@ -33,7 +33,6 @@
                           >, Before &amp; After Care</span>
                           <span v-else-if="school.acf.schoolBeforeHours">, Before Care</span>
                           <span v-else-if="school.acf.schoolAfterHours">, After Care</span>
-
                         </div>
                       </v-layout>
                     </v-layout>
@@ -49,53 +48,20 @@
 </template>
 
 <script>
-import gql from "graphql-tag";
-
-// Grab the 2 letter ISO code of the current page
-const LANG = document.querySelector("html").lang.slice(0,2).toUpperCase() == "ES" ? "ES" : "EN";
-
 export default {
-  apollo: {
-    // Query with parameters
-    schools: {
-      // gql query
-      query: gql`query getSchools($language: LanguageCodeFilterEnum!) {
-        schools(where: { language: $language }, first: 100) {
-          nodes {
-            id
-            title
-            link
-            featuredImage {
-              sourceUrl(size: MEDIUM_LARGE)
-            }
-            language {
-              id
-              name
-            }
-            acf {
-              schoolAddress
-              schoolAfterHours
-              schoolBeforeHours
-              schoolCity
-              schoolEnrollment
-              schoolNeighborhood
-              schoolPrincipal
-              schoolUniforms
-              schoolUrl
-              schoolZip
-              schoolGrades
-              schoolTransportation
-              schoolHours
-              schoolIntro
-            }
-          }
-        }
-      }`, //end GQL
-      variables: {
-        language: LANG,
-      },
-    },
+  computed: {
+    schools() {
+      return this.$store.state.filteredSchools;
+    }
   },
+  methods: {
+    selectSchool(school) {
+      this.$store.commit("selectSchool", school);
+    },
+    selected(school) {
+      return this.$store.state.selectedSchool === school;
+    }
+  }
 }
 </script>
 

@@ -2,7 +2,7 @@
   <v-item-group>
     <v-container class="pa-1 pb-0">
       <v-layout wrap>
-        <v-flex v-for="school in schools.nodes" :key="school.id">
+        <v-flex v-if="school">
           <v-card class="mx-1 mt-11">
             <v-img
               class="white--text primary"
@@ -67,53 +67,12 @@
 </template>
 
 <script>
-import gql from "graphql-tag";
-
-// Grab the 2 letter ISO code of the current page
-const LANG = document.querySelector("html").lang.slice(0,2).toUpperCase() == "ES" ? "ES" : "EN";
-
 export default {
-  apollo: {
-    // Query with parameters
-    schools: {
-      // gql query
-      query: gql`query getSchools($language: LanguageCodeFilterEnum!) {
-        schools(where: { language: $language }, first: 100) {
-          nodes {
-            id
-            title
-            link
-            featuredImage {
-              sourceUrl(size: MEDIUM_LARGE)
-            }
-            language {
-              id
-              name
-            }
-            acf {
-              schoolAddress
-              schoolAfterHours
-              schoolBeforeHours
-              schoolCity
-              schoolEnrollment
-              schoolNeighborhood
-              schoolPrincipal
-              schoolUniforms
-              schoolUrl
-              schoolZip
-              schoolGrades
-              schoolTransportation
-              schoolHours
-              schoolIntro
-            }
-          }
-        }
-      }`, //end GGL
-      variables: {
-        language: LANG,
-      },
-    },
-  },
+  computed: {
+    school() {
+      return this.$store.state.selectedSchool;
+    }
+  }
 }
 </script>
 

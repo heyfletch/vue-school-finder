@@ -1,4 +1,5 @@
-query getSchools($language: LanguageCodeFilterEnum!) {
+
+export default `query getSchools($language: LanguageCodeFilterEnum!) {
   schools(where: { language: $language }, first: 100) {
     nodes {
       id
@@ -29,4 +30,4 @@ query getSchools($language: LanguageCodeFilterEnum!) {
       }
     }
   }
-}
+}`

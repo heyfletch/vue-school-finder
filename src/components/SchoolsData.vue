@@ -16,44 +16,11 @@
 </template>
 
 <script>
-import gql from "graphql-tag";
-
 export default {
-  apollo: {
-    schools: gql`
-      query getSchools {
-        schools(where: { language: ALL }, first: 100) {
-          nodes {
-            id
-            title
-            link
-            featuredImage {
-              sourceUrl(size: MEDIUM_LARGE)
-            }
-            language {
-              id
-              name
-            }
-            acf {
-              schoolAddress
-              schoolAfterHours
-              schoolBeforeHours
-              schoolCity
-              schoolEnrollment
-              schoolNeighborhood
-              schoolPrincipal
-              schoolUniforms
-              schoolUrl
-              schoolZip
-              schoolGrades
-              schoolTransportation
-              schoolHours
-              schoolIntro
-            }
-          }
-        }
-      }
-    `// end gql
+  computed: {
+    schools() {
+      return this.$store.state.schools;
+    }
   }
 };
 </script>

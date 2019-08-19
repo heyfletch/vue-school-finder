@@ -4,7 +4,7 @@
       <h2 class="title mb-2">Grades</h2>
 
       <v-chip-group column multiple>
-        <v-chip v-for="grade in grades" :key="grade" outlined small color="primary">{{ grade }}</v-chip>
+        <v-chip v-for="grade in grades" :key="grade" outlined small color="primary" @click="toggleFilter('grade', grade)">{{ grade }}</v-chip>
       </v-chip-group>
     </v-card-text>
 
@@ -12,7 +12,7 @@
       <h2 class="title mb-2">Extended Care Needs</h2>
 
       <v-chip-group column multiple>
-        <v-chip v-for="careOption in careOptions" :key="careOption" outlined small color="primary">{{ careOption }}</v-chip>
+        <v-chip v-for="careOption in careOptions" :key="careOption" outlined small color="primary" @click="toggleFilter('careNeeds', careOption)">{{ careOption }}</v-chip>
       </v-chip-group>
     </v-card-text>
 
@@ -20,7 +20,7 @@
       <h2 class="title mb-2">Public Transportation</h2>
 
       <v-chip-group column multiple>
-        <v-chip v-for="transportOption in transportOptions" :key="transportOption" outlined small color="primary">{{ transportOption }}</v-chip>
+        <v-chip v-for="transportOption in transportOptions" :key="transportOption" outlined small color="primary" @click="toggleFilter('publicTrans', transportOption)">{{ transportOption }}</v-chip>
       </v-chip-group>
     </v-card-text>
 
@@ -28,7 +28,7 @@
       <h2 class="title mb-2">Neighborhood</h2>
 
       <v-chip-group column multiple>
-        <v-chip v-for="neighborhood in neighborhoods" :key="neighborhood" outlined small color="primary">{{ neighborhood }}</v-chip>
+        <v-chip v-for="neighborhood in neighborhoods" :key="neighborhood" outlined small color="primary" @click="toggleFilter('neighborhood', neighborhood)">{{ neighborhood }}</v-chip>
       </v-chip-group>
     </v-card-text>
   </v-card>
@@ -41,6 +41,22 @@ export default {
     careOptions: ['Before Care', 'After Care'],
     transportOptions: ['LA', 'LC', '70', '71', '71M', '72', '72M', '74', '76', '376', '681', 'BART'],
     neighborhoods: ['San Pablo', 'Richmond']
-  })
+  }),
+  methods: {
+    toggleFilter(type, value) {
+      if (this.$store.getters.hasFilter(type, value)) {
+        this.removeFilter(type, value);
+      }
+      else {
+        this.addFilter(type, value);
+      }
+    },
+    addFilter(type, value) {
+      this.$store.dispatch("addFilter", {type, value});
+    },
+    removeFilter(type, value) {
+      this.$store.dispatch("removeFilter", {type, value});
+    }
+  }
 };
 </script>
