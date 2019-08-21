@@ -23,16 +23,16 @@
                         </v-card-text>
 
                         <div class="pb-3">
-                          <span>Grades {{ school.acf.schoolGrades[0] }} - {{ school.acf.schoolGrades[school.acf.schoolGrades.length - 1] }}, </span>
+                          <span>{{ gradeLabel }} {{ school.acf.schoolGrades[0] }}-{{ school.acf.schoolGrades[school.acf.schoolGrades.length - 1] }}, </span>
 
-                          <span v-if="school.acf.schoolUniforms">Uniforms</span>
-                          <span v-else>No Uniforms</span>
+                          <span v-if="school.acf.schoolUniforms">{{ uniformLabel }}</span>
+                          <span v-else>No {{ uniformLabel }}</span>
 
                           <span
                             v-if="school.acf.schoolBeforeHours && school.acf.schoolAfterHours"
-                          >, Before &amp; After Care</span>
-                          <span v-else-if="school.acf.schoolBeforeHours">, Before Care</span>
-                          <span v-else-if="school.acf.schoolAfterHours">, After Care</span>
+                          >, {{ bothLabel }}</span>
+                          <span v-else-if="school.acf.schoolBeforeHours">, {{ beforeLabel }}</span>
+                          <span v-else-if="school.acf.schoolAfterHours">, {{ afterLabel }}</span>
                         </div>
                       </v-layout>
                     </v-layout>
@@ -48,7 +48,17 @@
 </template>
 
 <script>
+// English page true or false
+const isEnglish = document.querySelector("html").lang.slice(0,2).toUpperCase() === "EN" ? true : false;
+
 export default {
+  data: () => ({
+    gradeLabel: isEnglish ? "Grades" : "Grados",
+    uniformLabel: isEnglish ? "Uniforms" : "Uniformes",
+    beforeLabel: isEnglish ? "Before Care" : "Cuidado Antes",
+    afterLabel: isEnglish ? "After Care" : "Cuidado Después",
+    bothLabel: isEnglish ? "Before &amp; After Care" : "Cuidado Antes y Después",
+  }),
   computed: {
     schools() {
       return this.$store.state.filteredSchools;
