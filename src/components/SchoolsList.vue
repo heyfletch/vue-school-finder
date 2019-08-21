@@ -19,7 +19,7 @@
                         <h4 class="title mb-0" v-html="school.title"></h4>
                         <v-card-text class="body-2 px-0 pt-0 pb-2">
                           <div>{{ school.acf.schoolAddress }}</div>
-                          <div>{{ school.acf.schoolCity }}, CA {{ school.acf.schoolZip }} [{{ school.language.name }}]</div>
+                          <div>{{ school.acf.schoolCity }}, CA {{ school.acf.schoolZip }}</div>
                         </v-card-text>
 
                         <div class="pb-3">
