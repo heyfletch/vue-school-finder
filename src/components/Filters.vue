@@ -1,7 +1,7 @@
 <template>
-  <v-card class="mx-1 mt-5">
+  <v-card class="mx-1 mt-5 filters">
     <v-card-text width="1">
-      <h2 class="title mb-2">{{ gradeLabel }}</h2>
+      <h2 class="title mb-2 xs-mb-0">{{ gradeLabel }}</h2>
 
       <v-chip-group column multiple>
         <v-chip v-for="grade in grades" :key="grade" outlined small color="primary" @click="toggleFilter('grade', grade)">{{ grade }}</v-chip>
@@ -21,7 +21,7 @@
       </v-chip-group>
     </v-card-text>
 
-    <v-card-text>
+    <v-card-text class="d-none d-sm-block">
       <h2 class="title mb-2">{{ transportLabel }}</h2>
 
       <v-chip-group column multiple>
@@ -85,3 +85,21 @@ export default {
   }
 };
 </script>
+
+
+<style scoped>
+
+@media ( max-width: 599px ) {
+  h2.title.mb-2 {
+    margin-bottom: 0 !important;
+    margin-top: 0;
+  }
+  .filters .v-card__text {
+    padding-bottom: 0;
+    padding-top: 10px;
+  }
+  .filters .v-card__text:last-of-type {
+    padding-bottom: 10px;
+  }
+}
+</style>
