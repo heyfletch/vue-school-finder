@@ -13,7 +13,12 @@
       <h2 v-if="isEspanol" class="title mb-2">Cuidado Extendido</h2>
       <h2 v-else class="title mb-2">Extended Care Needs</h2>
 
-      <v-chip-group column multiple>
+      <v-chip-group v-if="isEspanol" column multiple>
+        <v-chip outlined small color="primary" @click="toggleFilter('careNeeds', 'Before Care')">Antes de las escuela</v-chip>
+        <v-chip outlined small color="primary" @click="toggleFilter('careNeeds', 'After Care')">Después de la escuela</v-chip>
+      </v-chip-group>
+
+      <v-chip-group v-else column multiple>
         <v-chip v-for="careOption in careOptions" :key="careOption" outlined small color="primary" @click="toggleFilter('careNeeds', careOption)">{{ careOption }}</v-chip>
       </v-chip-group>
     </v-card-text>
