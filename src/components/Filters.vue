@@ -1,8 +1,7 @@
 <template>
   <v-card class="mx-1 mt-5">
     <v-card-text width="1">
-      <h2 v-if="isEspanol" class="title mb-2">Grados</h2>
-      <h2 v-else class="title mb-2">Grades</h2>
+      <h2 class="title mb-2">{{ gradeLabel }}</h2>
 
       <v-chip-group column multiple>
         <v-chip v-for="grade in grades" :key="grade" outlined small color="primary" @click="toggleFilter('grade', grade)">{{ grade }}</v-chip>
@@ -10,22 +9,20 @@
     </v-card-text>
 
     <v-card-text>
-      <h2 v-if="isEspanol" class="title mb-2">Cuidado Extendido</h2>
-      <h2 v-else class="title mb-2">Extended Care Needs</h2>
+      <h2 class="title mb-2">{{ extendedLabel }}</h2>
 
-      <v-chip-group v-if="isEspanol" column multiple>
-        <v-chip outlined small color="primary" @click="toggleFilter('careNeeds', 'Before Care')">Antes de las escuela</v-chip>
-        <v-chip outlined small color="primary" @click="toggleFilter('careNeeds', 'After Care')">Después de la escuela</v-chip>
+      <v-chip-group v-if="isEnglish" column multiple>
+        <v-chip v-for="careOption in careOptions" :key="careOption" outlined small color="primary" @click="toggleFilter('careNeeds', careOption)">{{ careOption }}</v-chip>
       </v-chip-group>
 
       <v-chip-group v-else column multiple>
-        <v-chip v-for="careOption in careOptions" :key="careOption" outlined small color="primary" @click="toggleFilter('careNeeds', careOption)">{{ careOption }}</v-chip>
+        <v-chip outlined small color="primary" @click="toggleFilter('careNeeds', 'Before Care')">{{ beforeLabel }}</v-chip>
+        <v-chip outlined small color="primary" @click="toggleFilter('careNeeds', 'After Care')">{{ afterLabel }}</v-chip>
       </v-chip-group>
     </v-card-text>
 
     <v-card-text>
-      <h2 v-if="isEspanol" class="title mb-2">Transporte Público</h2>
-      <h2 v-else class="title mb-2">Public Transportation</h2>
+      <h2 class="title mb-2">{{ transportLabel }}</h2>
 
       <v-chip-group column multiple>
         <v-chip v-for="transportOption in transportOptions" :key="transportOption" outlined small color="primary" @click="toggleFilter('publicTrans', transportOption)">{{ transportOption }}</v-chip>
@@ -33,8 +30,7 @@
     </v-card-text>
 
     <v-card-text>
-      <h2 v-if="isEspanol" class="title mb-2">Vecindario</h2>
-      <h2 v-else class="title mb-2">Neighborhood</h2>
+      <h2 class="title mb-2">{{ neighborhoodLabel }}</h2>
 
       <v-chip-group column multiple>
         <v-chip v-for="neighborhood in neighborhoods" :key="neighborhood" outlined small color="primary" @click="toggleFilter('neighborhood', neighborhood)">{{ neighborhood }}</v-chip>
@@ -44,8 +40,8 @@
 </template>
 
 <script>
-// Grab the 2 letter ISO code of the current page
-const LANG = document.querySelector("html").lang.slice(0,2).toUpperCase() === "ES" ? true : false;
+// English page true or false
+const isEnglish = document.querySelector("html").lang.slice(0,2).toUpperCase() === "ES" ? false : true;
 
 export default {
   data: () => ({
@@ -53,7 +49,23 @@ export default {
     careOptions: ['Before Care', 'After Care'],
     transportOptions: ['LA', 'LC', '70', '71', '71M', '72', '72M', '74', '76', '376', '681', 'BART'],
     neighborhoods: ['San Pablo', 'Richmond'],
-    isEspanol: LANG
+    //translations
+    gradeLabel: isEnglish ? "Grades" : "Grados",
+    gradeOfferedLabel: isEnglish ? "Grades Offered" : "Grados Ofrecidos",
+    uniformLabel: isEnglish ? "Uniforms" : "Uniformes",
+    beforeLabel: isEnglish ? "Before Care" : "Cuidado Antes",
+    afterLabel: isEnglish ? "After Care" : "Cuidado Después",
+    bothLabel: isEnglish ? "Before &amp; After Care" : "Cuidado Antes y Después",
+    principalLabel: isEnglish ? "Principal" : "Director/a",
+    missionLabel: isEnglish ? "Mission" : "Misión",
+    transportLabel: isEnglish ? "Public Transportation" : "Transporte Público",
+    enrollmentLabel: isEnglish ? "Enrollment Size" : "Matricula Total",
+    learnMore: isEnglish ? "Learn More" : "Aprende más",
+    applyNow: isEnglish ? "Apply Now" : "Inscribirse",
+    none: isEnglish ? "None" : "Nada",
+    yes: isEnglish ? "Yes" : "Sí",
+    extendedLabel: isEnglish ? "Extended Care" : "Cuidado Extendido",
+    neighborhoodLabel: isEnglish ? "Neighborhood" : "Vecindario",
   }),
   methods: {
     toggleFilter(type, value) {

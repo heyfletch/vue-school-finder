@@ -70,21 +70,24 @@
 const isEnglish = document.querySelector("html").lang.slice(0,2).toUpperCase() === "EN" ? true : false;
 
 export default {
-    data: () => ({
-      gradeLabel: isEnglish ? "Grades" : "Grados",
-      gradeOfferedLabel: isEnglish ? "Grades Offered" : "Grados Ofrecidos",
-      uniformLabel: isEnglish ? "Uniforms" : "Uniformes",
-      beforeLabel: isEnglish ? "Before Care" : "Cuidado Antes",
-      afterLabel: isEnglish ? "After Care" : "Cuidado Después",
-      bothLabel: isEnglish ? "Before &amp; After Care" : "Cuidado Antes y Después",
-      principalLabel: isEnglish ? "Principal" : "Director/a",
-      missionLabel: isEnglish ? "Mission" : "Misión",
-      transportLabel: isEnglish ? "Public Transportation" : "Transporte Público",
-      enrollmentLabel: isEnglish ? "Enrollment Size" : "Matricula Total",
-      learnMore: isEnglish ? "Learn More" : "Aprende más",
-      applyNow: isEnglish ? "Apply Now" : "Inscribirse",
-      none: isEnglish ? "None" : "Nada",
-      yes: isEnglish ? "Yes" : "Sí",
+  data: () => ({
+    // translations
+    gradeLabel: isEnglish ? "Grades" : "Grados",
+    gradeOfferedLabel: isEnglish ? "Grades Offered" : "Grados Ofrecidos",
+    uniformLabel: isEnglish ? "Uniforms" : "Uniformes",
+    beforeLabel: isEnglish ? "Before Care" : "Cuidado Antes",
+    afterLabel: isEnglish ? "After Care" : "Cuidado Después",
+    bothLabel: isEnglish ? "Before &amp; After Care" : "Cuidado Antes y Después",
+    principalLabel: isEnglish ? "Principal" : "Director/a",
+    missionLabel: isEnglish ? "Mission" : "Misión",
+    transportLabel: isEnglish ? "Public Transportation" : "Transporte Público",
+    enrollmentLabel: isEnglish ? "Enrollment Size" : "Matricula Total",
+    learnMore: isEnglish ? "Learn More" : "Aprende más",
+    applyNow: isEnglish ? "Apply Now" : "Inscribirse",
+    none: isEnglish ? "None" : "Nada",
+    yes: isEnglish ? "Yes" : "Sí",
+    extendedLabel: isEnglish ? "Extended Care" : "Cuidado Extendido",
+    neighborhoodLabel: isEnglish ? "Neighborhood" : "Vecindario",
   }),
   computed: {
     school() {
