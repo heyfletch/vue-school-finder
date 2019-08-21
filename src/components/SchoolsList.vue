@@ -1,5 +1,5 @@
 <template>
-  <v-card class="mx-1 mt-12">
+  <v-card class="mx-5 mt-5">
     <v-item-group>
       <v-container class="pa-1 pb-0">
         <v-layout wrap>

@@ -1,5 +1,5 @@
 <template>
-  <v-card class="mx-1 mt-12">
+  <v-card class="mx-1 mt-5">
     <v-card-text width="1">
       <h2 class="title mb-2">Grades</h2>
 
