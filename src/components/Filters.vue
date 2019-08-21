@@ -91,12 +91,16 @@ export default {
 
 @media ( max-width: 599px ) {
   h2.title.mb-2 {
+    color: #222;
+    font-size: .875rem !important;
+    font-weight: 400;
+    line-height: 1;
     margin-bottom: 0 !important;
     margin-top: 0;
   }
   .filters .v-card__text {
     padding-bottom: 0;
-    padding-top: 10px;
+    padding-top: 15px;
   }
   .filters .v-card__text:last-of-type {
     padding-bottom: 10px;

@@ -1,5 +1,5 @@
 <template>
-  <v-card class="mx-1 mt-5">
+  <v-card class="mx-1 mt-5 schools">
     <v-item-group>
       <v-container class="pa-1 pb-0">
         <v-layout wrap>
@@ -17,12 +17,12 @@
                       </v-list-item-avatar>
                       <v-layout class="mt-2" column>
                         <h4 class="title mb-0" v-html="school.title"></h4>
-                        <v-card-text class="body-2 px-0 pt-0 pb-2">
+                        <v-card-text class="d-none d-sm-block body-2 px-0 pt-0 pb-2">
                           <div>{{ school.acf.schoolAddress }}</div>
                           <div>{{ school.acf.schoolCity }}, CA {{ school.acf.schoolZip }}</div>
                         </v-card-text>
 
-                        <div class="pb-3">
+                        <div class="school-data pb-3">
                           <span>{{ gradeLabel }} {{ school.acf.schoolGrades[0] }}-{{ school.acf.schoolGrades[school.acf.schoolGrades.length - 1] }}, </span>
 
                           <span v-if="school.acf.schoolUniforms">{{ uniformLabel }}</span>
@@ -97,5 +97,27 @@ export default {
 .v-application .title {
   font-size: 1rem !important;
   line-height: 1.4rem;
+}
+.school-data {
+  line-height: 1.3;
+}
+
+@media ( max-width: 599px ) {
+  .schools .v-list-item {
+    padding: 5px 8px;
+  }
+  .schools .v-list-item__content {
+    padding-top: 2px !important;
+  }
+  .schools .layout {
+    padding-bottom: 2px !important;
+    padding-right: 2px !important;
+  }
+  .schools .v-avatar.v-list-item__avatar {
+    margin-right: 15px !important;
+  }
+  .schools h4 {
+    padding-bottom: 5px;
+  }
 }
 </style>
