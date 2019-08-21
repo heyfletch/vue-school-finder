@@ -11,6 +11,7 @@
           </v-flex>
           <v-flex xs12 md12 lg4>
             <Profile />
+            <Maps />
           </v-flex>
         </v-layout>
       </v-container>
@@ -22,13 +23,15 @@
 import Filters from "./components/Filters";
 import SchoolsList from "./components/SchoolsList";
 import Profile from "./components/Profile";
+import Maps from "./components/Maps";
 
 export default {
   name: "App",
   components: {
     Filters,
     SchoolsList,
-    Profile
+    Profile,
+    Maps,
   },
   created() {
     this.$store.dispatch("getSchools");
