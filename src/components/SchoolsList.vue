@@ -23,16 +23,16 @@
                         </v-card-text>
 
                         <div class="school-data pb-3">
-                          <span>{{ gradeLabel }} {{ school.acf.schoolGrades[0] }}-{{ school.acf.schoolGrades[school.acf.schoolGrades.length - 1] }}, </span>
+                          <span>{{ locale.grades }} {{ school.acf.schoolGrades[0] }}-{{ school.acf.schoolGrades[school.acf.schoolGrades.length - 1] }}, </span>
 
-                          <span v-if="school.acf.schoolUniforms">{{ uniformLabel }}</span>
-                          <span v-else>No {{ uniformLabel }}</span>
+                          <span v-if="school.acf.schoolUniforms">{{ locale.uniforms }}</span>
+                          <span v-else>No {{ locale.uniforms }}</span>
 
                           <span
                             v-if="school.acf.schoolBeforeHours && school.acf.schoolAfterHours"
-                          >, {{ bothLabel }}</span>
-                          <span v-else-if="school.acf.schoolBeforeHours">, {{ beforeLabel }}</span>
-                          <span v-else-if="school.acf.schoolAfterHours">, {{ afterLabel }}</span>
+                          >, {{ locale.beforeAfterCare }}</span>
+                          <span v-else-if="school.acf.schoolBeforeHours">, {{ locale.beforeCare }}</span>
+                          <span v-else-if="school.acf.schoolAfterHours">, {{ locale.afterCare }}</span>
                         </div>
                       </v-layout>
                     </v-layout>
@@ -46,39 +46,20 @@
     </v-item-group>
     <v-card v-else class="py-3 pl-3">
       <h4 class="title">
-        No schools with that criteria found.
+        {{ locale.noSchoolsFound }}
       </h4>
     </v-card>
   </v-card>
 </template>
 
 <script>
-// English page true or false
-const isEnglish = document.querySelector("html").lang.slice(0,2).toUpperCase() === "EN" ? true : false;
-
 export default {
-  data: () => ({
-    // translations
-    gradeLabel: isEnglish ? "Grades" : "Grados",
-    gradeOfferedLabel: isEnglish ? "Grades Offered" : "Grados Ofrecidos",
-    uniformLabel: isEnglish ? "Uniforms" : "Uniformes",
-    beforeLabel: isEnglish ? "Before Care" : "Cuidado Antes",
-    afterLabel: isEnglish ? "After Care" : "Cuidado Después",
-    bothLabel: isEnglish ? "Before &amp; After Care" : "Cuidado Antes y Después",
-    principalLabel: isEnglish ? "Principal" : "Director/a",
-    missionLabel: isEnglish ? "Mission" : "Misión",
-    transportLabel: isEnglish ? "Public Transportation" : "Transporte Público",
-    enrollmentLabel: isEnglish ? "Enrollment Size" : "Matricula Total",
-    learnMore: isEnglish ? "Learn More" : "Aprende más",
-    applyNow: isEnglish ? "Apply Now" : "Inscribirse",
-    none: isEnglish ? "None" : "Nada",
-    yes: isEnglish ? "Yes" : "Sí",
-    extendedLabel: isEnglish ? "Extended Care" : "Cuidado Extendido",
-    neighborhoodLabel: isEnglish ? "Neighborhood" : "Vecindario",
-  }),
   computed: {
     schools() {
       return this.$store.state.filteredSchools;
+    },
+    locale() {
+      return this.$store.state.locale;
     }
   },
   methods: {

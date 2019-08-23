@@ -18,46 +18,46 @@
               <v-card-title class="align-start">
                 <div>
                   <div class="subtitle-1 d-block" v-html="school.title"></div>
-                  <div class="body-2 d-block">{{ principalLabel }}: {{ school.acf.schoolPrincipal }}</div>
+                  <div class="body-2 d-block">{{ locale.principal }}: {{ school.acf.schoolPrincipal }}</div>
                 </div>
               </v-card-title>
             </v-img>
 
             <v-card-text class="pb-0">
-              <h5 class="text--primary">{{ missionLabel }}</h5>
+              <h5 class="text--primary">{{ locale.mission }}</h5>
               <p class="mb-2">{{ school.acf.schoolIntro }}</p>
               <div>
-                <span class="text--primary">{{ gradeOfferedLabel }}: </span>
+                <span class="text--primary">{{ locale.gradeOffered }}: </span>
                 <span>{{ school.acf.schoolGrades.join(', ') }}</span>
               </div>
               <div>
-                <span class="text--primary">{{ uniformLabel }}: </span>
-                <span v-if="school.acf.schoolUniforms">{{ yes }}</span>
+                <span class="text--primary">{{ locale.uniforms }}: </span>
+                <span v-if="school.acf.schoolUniforms">{{ locale.yes }}</span>
                 <span v-else>No</span>
               </div>
               <div>
-                <span class="text--primary">{{ transportLabel }}: </span>
+                <span class="text--primary">{{ locale.publicTransportation }}: </span>
                 <span>{{ school.acf.schoolTransportation.join(', ') }}</span>
               </div>
               <div>
-                <span class="text--primary">{{ enrollmentLabel }}: </span>
+                <span class="text--primary">{{ locale.enrollmentSize }}: </span>
                 <span>{{ school.acf.schoolEnrollment }}</span>
               </div>
               <div>
-                <span class="text--primary">{{ beforeLabel }}: </span>
+                <span class="text--primary">{{ locale.beforeCare }}: </span>
                 <span v-if="school.acf.schoolBeforeHours">{{ school.acf.schoolBeforeHours }}</span>
-                <span v-else>{{ none }}</span>
+                <span v-else>{{ locale.none }}</span>
               </div>
               <div>
-                <span class="text--primary">{{ afterLabel }}: </span>
+                <span class="text--primary">{{ locale.afterCare }}: </span>
                 <span v-if="school.acf.schoolAfterHours">{{ school.acf.schoolAfterHours }}</span>
-                <span v-else>{{ none }}</span>
+                <span v-else>{{ locale.none }}</span>
               </div>
             </v-card-text>
 
             <v-card-actions>
-              <v-btn :href="school.link" text color="primary">{{ learnMore }}</v-btn>
-              <v-btn href="https://enrollwcc.org/apply/" text color="primary">{{ applyNow }}</v-btn>
+              <v-btn :href="school.link" text color="primary">{{ locale.learnMore }}</v-btn>
+              <v-btn href="https://enrollwcc.org/apply/" text color="primary">{{ locale.applyNow }}</v-btn>
             </v-card-actions>
           </v-card>
         </v-flex>
@@ -67,31 +67,13 @@
 </template>
 
 <script>
-const isEnglish = document.querySelector("html").lang.slice(0,2).toUpperCase() === "EN" ? true : false;
-
 export default {
-  data: () => ({
-    // translations
-    gradeLabel: isEnglish ? "Grades" : "Grados",
-    gradeOfferedLabel: isEnglish ? "Grades Offered" : "Grados Ofrecidos",
-    uniformLabel: isEnglish ? "Uniforms" : "Uniformes",
-    beforeLabel: isEnglish ? "Before Care" : "Cuidado Antes",
-    afterLabel: isEnglish ? "After Care" : "Cuidado Después",
-    bothLabel: isEnglish ? "Before &amp; After Care" : "Cuidado Antes y Después",
-    principalLabel: isEnglish ? "Principal" : "Director/a",
-    missionLabel: isEnglish ? "Mission" : "Misión",
-    transportLabel: isEnglish ? "Public Transportation" : "Transporte Público",
-    enrollmentLabel: isEnglish ? "Enrollment Size" : "Matricula Total",
-    learnMore: isEnglish ? "Learn More" : "Aprende más",
-    applyNow: isEnglish ? "Apply Now" : "Inscribirse",
-    none: isEnglish ? "None" : "Nada",
-    yes: isEnglish ? "Yes" : "Sí",
-    extendedLabel: isEnglish ? "Extended Care" : "Cuidado Extendido",
-    neighborhoodLabel: isEnglish ? "Neighborhood" : "Vecindario",
-  }),
   computed: {
     school() {
       return this.$store.state.selectedSchool;
+    },
+    locale() {
+      return this.$store.state.locale;
     }
   }
 }

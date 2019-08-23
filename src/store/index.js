@@ -2,10 +2,14 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
+import locales from '../locales';
+
 import getSchools from "../graphql/getSchools"
 
-// Grab the 2 letter ISO code of the current page
-const LANG = document.querySelector("html").lang.slice(0,2).toUpperCase() === "ES" ? "ES" : "EN";
+// Grab the 2 letter ISO code of the browser
+//const lang = navigator.language || navigator.userLanguage;
+//const LANG = lang.slice(0, 2).toUpperCase() === "ES" ? "ES" : "EN";
+const LANG = "EN";
 
 Vue.use(Vuex);
 
@@ -14,7 +18,9 @@ export default new Vuex.Store({
     schools: [],
     filteredSchools: [],
     filters: [],
-    selectedSchool: undefined
+    selectedSchool: undefined,
+    language: LANG,
+    locale: locales[LANG]
   },
   getters: {
     getFilter(state) {
@@ -49,19 +55,19 @@ export default new Vuex.Store({
     },
   },
   actions: {
-    async getSchools({commit}) {
+    async getSchools({commit, state}) {
       const storage = window.localStorage;
       const cached = JSON.parse(storage.getItem("schools"));
 
       let schools
-      if (!cached || cached.expires < Date.now() || cached.language !== LANG) {
+      if (!cached || cached.expires < Date.now() || cached.language !== state.language) {
         const resp = await (await fetch("https://enrollwcc.kinsta.cloud/graphql", {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
           },
-          body: JSON.stringify({ query: getSchools, variables: { language: LANG } })
+          body: JSON.stringify({ query: getSchools, variables: { language: state.language } })
         })).json()
 
         schools = resp.data.schools.nodes;
@@ -69,7 +75,7 @@ export default new Vuex.Store({
         const obj = {
           schools,
           expires: Date.now() + 1000 * 60 * 60 * 24, // Expires in a day
-          language: LANG // Let's store this in case it changes.
+          language: state.language // Let's store this in case it changes.
         }
 
         storage.setItem("schools", JSON.stringify(obj));
