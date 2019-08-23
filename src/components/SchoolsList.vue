@@ -1,6 +1,6 @@
 <template>
   <v-card class="mx-1 mt-5 schools">
-    <v-item-group>
+    <v-item-group v-if="schools.length > 0">
       <v-container class="pa-1 pb-0">
         <v-layout wrap>
           <v-flex v-for="school in schools" :key="school.id">
@@ -44,6 +44,11 @@
         </v-layout>
       </v-container>
     </v-item-group>
+    <v-card v-else class="py-3 pl-3">
+      <h4 class="title">
+        No schools with that criteria found.
+      </h4>
+    </v-card>
   </v-card>
 </template>
 
