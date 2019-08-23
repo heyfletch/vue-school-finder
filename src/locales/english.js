@@ -16,5 +16,6 @@ export default {
   yes: "Yes",
   extendedCare: "Extended Care",
   neighborhood: "Neighborhood",
-  noSchoolsFound: "No schools with that criteria found."
+  noSchoolsFound: "No schools with that criteria found.",
+  goBack: "Back to school list"
 }

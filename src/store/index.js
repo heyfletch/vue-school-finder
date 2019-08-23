@@ -53,6 +53,9 @@ export default new Vuex.Store({
     selectSchool(state, school) {
       state.selectedSchool = school;
     },
+    unselectSchool(state) {
+      state.selectedSchool = undefined;
+    }
   },
   actions: {
     async getSchools({commit, state}) {

@@ -1,41 +1,48 @@
 <template>
   <v-card class="mx-1 mt-5 filters">
-    <v-card-text width="1">
-      <h2 class="title mb-2 xs-mb-0">{{ locale.grades }}</h2>
+    <v-layout wrap>
+      <v-flex xs12 sm6 md12>
+        <v-card-text width="1">
+          <h2 class="title mb-2 xs-mb-0">{{ locale.grades }}</h2>
 
-      <v-chip-group column multiple>
-        <v-chip v-for="grade in grades" :key="grade" outlined small color="primary" @click="toggleFilter('grade', grade)">{{ grade }}</v-chip>
-      </v-chip-group>
-    </v-card-text>
+          <v-chip-group column multiple>
+            <v-chip v-for="grade in grades" :key="grade" outlined small color="primary" @click="toggleFilter('grade', grade)">{{ grade }}</v-chip>
+          </v-chip-group>
+        </v-card-text>
+      </v-flex>
+      <v-flex xs12 sm6 md12>
+        <v-card-text>
+          <h2 class="title mb-2">{{ locale.extendedCare }}</h2>
 
-    <v-card-text>
-      <h2 class="title mb-2">{{ locale.extendedCare }}</h2>
+          <!-- <v-chip-group v-if="isEnglish" column multiple>
+            <v-chip v-for="careOption in careOptions" :key="careOption" outlined small color="primary" @click="toggleFilter('careNeeds', careOption)">{{ careOption }}</v-chip>
+          </v-chip-group> -->
 
-      <!-- <v-chip-group v-if="isEnglish" column multiple>
-        <v-chip v-for="careOption in careOptions" :key="careOption" outlined small color="primary" @click="toggleFilter('careNeeds', careOption)">{{ careOption }}</v-chip>
-      </v-chip-group> -->
+          <v-chip-group column multiple>
+            <v-chip outlined small color="primary" @click="toggleFilter('careNeeds', 'Before Care')">{{ locale.beforeCare }}</v-chip>
+            <v-chip outlined small color="primary" @click="toggleFilter('careNeeds', 'After Care')">{{ locale.afterCare }}</v-chip>
+          </v-chip-group>
+        </v-card-text>
+      </v-flex>
+      <v-flex xs12 sm6 md12>
+        <v-card-text>
+          <h2 class="title mb-2">{{ locale.publicTransportation }}</h2>
 
-      <v-chip-group column multiple>
-        <v-chip outlined small color="primary" @click="toggleFilter('careNeeds', 'Before Care')">{{ locale.beforeCare }}</v-chip>
-        <v-chip outlined small color="primary" @click="toggleFilter('careNeeds', 'After Care')">{{ locale.afterCare }}</v-chip>
-      </v-chip-group>
-    </v-card-text>
+          <v-chip-group column multiple>
+            <v-chip v-for="transportOption in transportOptions" :key="transportOption" outlined small color="primary" @click="toggleFilter('publicTrans', transportOption)">{{ transportOption }}</v-chip>
+          </v-chip-group>
+        </v-card-text>
+      </v-flex>
+      <v-flex xs12 sm6 md12>
+        <v-card-text>
+          <h2 class="title mb-2">{{ locale.neighborhood }}</h2>
 
-    <v-card-text class="d-none d-sm-block">
-      <h2 class="title mb-2">{{ locale.publicTransportation }}</h2>
-
-      <v-chip-group column multiple>
-        <v-chip v-for="transportOption in transportOptions" :key="transportOption" outlined small color="primary" @click="toggleFilter('publicTrans', transportOption)">{{ transportOption }}</v-chip>
-      </v-chip-group>
-    </v-card-text>
-
-    <v-card-text>
-      <h2 class="title mb-2">{{ locale.neighborhood }}</h2>
-
-      <v-chip-group column multiple>
-        <v-chip v-for="neighborhood in neighborhoods" :key="neighborhood" outlined small color="primary" @click="toggleFilter('neighborhood', neighborhood)">{{ neighborhood }}</v-chip>
-      </v-chip-group>
-    </v-card-text>
+          <v-chip-group column multiple>
+            <v-chip v-for="neighborhood in neighborhoods" :key="neighborhood" outlined small color="primary" @click="toggleFilter('neighborhood', neighborhood)">{{ neighborhood }}</v-chip>
+          </v-chip-group>
+        </v-card-text>
+      </v-flex>
+    </v-layout>
   </v-card>
 </template>
 
