@@ -50,6 +50,11 @@ export default new Vuex.Store({
       filters.splice(index, 1);
       state.filters = filters;
     },
+    removeNeighborhoodFilters(state) {
+      let filters = state.filters.slice();
+      filters = filters.filter(v => v.type !== "neighborhood");
+      state.filters = filters;
+    },
     selectSchool(state, school) {
       state.selectedSchool = school;
     },
@@ -90,6 +95,9 @@ export default new Vuex.Store({
       commit("setSchools", schools);
     },
     addFilter({commit, dispatch}, filter) {
+      if (filter.type === "neighborhood") {
+        commit("removeNeighborhoodFilters");
+      }
       commit("addFilter", filter);
       dispatch("applyFilters");
     },

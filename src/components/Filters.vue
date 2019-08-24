@@ -37,7 +37,7 @@
         <v-card-text>
           <h2 class="title mb-2">{{ locale.neighborhood }}</h2>
 
-          <v-chip-group column multiple>
+          <v-chip-group column>
             <v-chip v-for="neighborhood in neighborhoods" :key="neighborhood" outlined small color="primary" @click="toggleFilter('neighborhood', neighborhood)">{{ neighborhood }}</v-chip>
           </v-chip-group>
         </v-card-text>
@@ -61,8 +61,11 @@ export default {
     }
   },
   methods: {
+    hasFilter(type, value) {
+      return this.$store.getters.hasFilter(type, value);
+    },
     toggleFilter(type, value) {
-      if (this.$store.getters.hasFilter(type, value)) {
+      if (this.hasFilter(type, value)) {
         this.removeFilter(type, value);
       }
       else {
