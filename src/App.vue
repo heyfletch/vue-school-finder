@@ -2,7 +2,7 @@
   <v-app>
     <v-content>
       <v-container grid-list-md>
-        <v-layout wrap v-if="isMobile && selectedSchool">
+        <v-layout wrap v-show="isMobile && selectedSchool">
           <v-flex xs12>
             <v-btn color="primary" @click="unselectSchool">{{ locale.goBack }}</v-btn>
           </v-flex>
@@ -13,7 +13,7 @@
             <Maps />
           </v-flex>
         </v-layout>
-        <v-layout wrap v-else>
+        <v-layout wrap v-show="!isMobile || !selectedSchool">
           <v-flex xs12 md5 lg3>
             <Filters />
           </v-flex>
