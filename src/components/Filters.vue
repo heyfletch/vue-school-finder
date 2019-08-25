@@ -5,8 +5,8 @@
         <v-card-text width="1">
           <h2 class="title mb-2 xs-mb-0">{{ locale.grades }}</h2>
 
-          <v-chip-group column multiple>
-            <v-chip v-for="grade in grades" :key="grade" outlined small color="primary" @click="toggleFilter('grade', grade)">{{ grade }}</v-chip>
+          <v-chip-group column multiple :value="getFilters('grade')">
+            <v-chip v-for="grade in grades" :key="grade" outlined small color="primary" :value="grade" @click="toggleFilter('grade', grade)">{{ grade }}</v-chip>
           </v-chip-group>
         </v-card-text>
       </v-flex>
@@ -18,9 +18,9 @@
             <v-chip v-for="careOption in careOptions" :key="careOption" outlined small color="primary" @click="toggleFilter('careNeeds', careOption)">{{ careOption }}</v-chip>
           </v-chip-group> -->
 
-          <v-chip-group column multiple>
-            <v-chip outlined small color="primary" @click="toggleFilter('careNeeds', 'Before Care')">{{ locale.beforeCare }}</v-chip>
-            <v-chip outlined small color="primary" @click="toggleFilter('careNeeds', 'After Care')">{{ locale.afterCare }}</v-chip>
+          <v-chip-group column multiple :value="getFilters('careNeeds')">
+            <v-chip outlined small color="primary" value="Before Care" @click="toggleFilter('careNeeds', 'Before Care')">{{ locale.beforeCare }}</v-chip>
+            <v-chip outlined small color="primary" value="After Care" @click="toggleFilter('careNeeds', 'After Care')">{{ locale.afterCare }}</v-chip>
           </v-chip-group>
         </v-card-text>
       </v-flex>
@@ -28,8 +28,18 @@
         <v-card-text>
           <h2 class="title mb-2">{{ locale.publicTransportation }}</h2>
 
-          <v-chip-group column multiple>
-            <v-chip v-for="transportOption in transportOptions" :key="transportOption" outlined small color="primary" @click="toggleFilter('publicTrans', transportOption)">{{ transportOption }}</v-chip>
+          <v-chip-group column multiple :value="getFilters('publicTrans')">
+            <v-chip
+              v-for="transportOption in transportOptions"
+              :key="transportOption"
+              :value="transportOption"
+              outlined
+              small
+              color="primary"
+              @click="toggleFilter('publicTrans', transportOption)"
+            >
+              {{ transportOption }}
+            </v-chip>
           </v-chip-group>
         </v-card-text>
       </v-flex>
@@ -37,10 +47,23 @@
         <v-card-text>
           <h2 class="title mb-2">{{ locale.neighborhood }}</h2>
 
-          <v-chip-group column>
-            <v-chip v-for="neighborhood in neighborhoods" :key="neighborhood" outlined small color="primary" @click="toggleFilter('neighborhood', neighborhood)">{{ neighborhood }}</v-chip>
+          <v-chip-group column :value="getFilters('neighborhood')[0]">
+            <v-chip
+              v-for="neighborhood in neighborhoods"
+              :key="neighborhood"
+              :value="neighborhood"
+              outlined
+              small
+              color="primary"
+              @click="toggleFilter('neighborhood', neighborhood)"
+            >
+              {{ neighborhood }}
+            </v-chip>
           </v-chip-group>
         </v-card-text>
+      </v-flex>
+      <v-flex xs12>
+        <v-btn class="ml-2 mb-2" text color="primary" @click="clearFilters">Clear Filters</v-btn>
       </v-flex>
     </v-layout>
   </v-card>
@@ -64,6 +87,9 @@ export default {
     hasFilter(type, value) {
       return this.$store.getters.hasFilter(type, value);
     },
+    getFilters(type) {
+      return this.$store.getters.getFiltersByType(type).map(v => v.value);
+    },
     toggleFilter(type, value) {
       if (this.hasFilter(type, value)) {
         this.removeFilter(type, value);
@@ -77,6 +103,9 @@ export default {
     },
     removeFilter(type, value) {
       this.$store.dispatch("removeFilter", {type, value});
+    },
+    clearFilters() {
+      this.$store.dispatch("clearFilters");
     }
   }
 };

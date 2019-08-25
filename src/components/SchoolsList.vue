@@ -1,5 +1,5 @@
 <template>
-  <v-card class="mx-1 mt-5 schools">
+  <v-card class="mx-1 mt-5 py-1 schools">
     <v-item-group v-if="schools.length > 0">
       <v-container class="pa-1 pb-0">
         <v-layout wrap>
@@ -44,8 +44,8 @@
         </v-layout>
       </v-container>
     </v-item-group>
-    <v-card v-else class="py-3 pl-3">
-      <h4 class="title">
+    <v-card v-else class="my-3 mx-3">
+      <h4 class="title px-3 py-3">
         {{ locale.noSchoolsFound }}
       </h4>
     </v-card>
@@ -86,6 +86,18 @@ export default {
 }
 .school-data {
   line-height: 1.3;
+}
+
+.schools {
+  height: 700px;
+  overflow-y: auto;
+}
+
+@media ( max-width: 959px) {
+  .schools {
+    height: auto;
+    overflow-y: initial;
+  }
 }
 
 @media ( max-width: 599px ) {
