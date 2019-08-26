@@ -56,8 +56,8 @@
             </v-card-text>
 
             <v-card-actions>
-              <v-btn :href="school.link" text color="primary">{{ locale.learnMore }}</v-btn>
-              <v-btn href="https://enrollwcc.org/apply/" text color="primary">{{ locale.applyNow }}</v-btn>
+              <v-btn :href="school.link" @click="gaHandler('Learn More', school.title)" text color="primary">{{ locale.learnMore }}</v-btn>
+              <v-btn href="https://enrollwcc.org/apply/" @click="gaHandler('Apply Now', school.title)" text color="primary">{{ locale.applyNow }}</v-btn>
             </v-card-actions>
           </v-card>
         </v-flex>
@@ -74,6 +74,11 @@ export default {
     },
     locale() {
       return this.$store.state.locale;
+    }
+  },
+  methods: {
+    gaHandler(btn, title) {
+      this.$store.dispatch("ga", {action: btn, school: title})
     }
   }
 }

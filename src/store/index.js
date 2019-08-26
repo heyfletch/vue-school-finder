@@ -8,8 +8,9 @@ import getSchools from "../graphql/getSchools"
 
 // Grab the 2 letter ISO code of the browser
 //const lang = navigator.language || navigator.userLanguage;
-//const LANG = lang.slice(0, 2).toUpperCase() === "ES" ? "ES" : "EN";
-const LANG = "EN";
+const lang = document.documentElement.attributes["lang"].value;
+const LANG = lang.slice(0, 2).toUpperCase() === "ES" ? "ES" : "EN";
+//const LANG = "EN";
 
 Vue.use(Vuex);
 
@@ -159,6 +160,20 @@ export default new Vuex.Store({
       })
 
       commit("setFilteredSchools", filtered);
+    },
+    ga(_, payload) {
+      try {
+        // eslint-disable-next-line no-undef
+        ga("send", {
+          hitType: "event",
+          eventCategory: "School Profile",
+          eventAction: payload.action,
+          eventLabel: payload.school
+        });
+      }
+      catch (e) {
+        // No ga detected, moving on.
+      }
     }
   }
 });

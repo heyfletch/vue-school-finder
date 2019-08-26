@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-content>
-      <v-container grid-list-md>
+      <v-container grid-list-md ref="container">
         <v-layout wrap v-if="isMobile && selectedSchool">
           <v-flex xs12>
             <v-btn color="primary" @click="unselectSchool">{{ locale.goBack }}</v-btn>
@@ -61,7 +61,8 @@ export default {
   watch: {
     selectedSchool(newV) {
       if (this.isMobile && newV) {
-        window.scrollTo(0, 0);
+        const rect = this.$refs.container.getBoundingClientRect();
+        window.scrollTo(0, rect.top);
       }
     }
   },
