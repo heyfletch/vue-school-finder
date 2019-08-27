@@ -63,7 +63,7 @@
         </v-card-text>
       </v-flex>
       <v-flex xs12>
-        <v-btn class="ml-2 mb-2" text color="primary" @click="clearFilters">Clear Filters</v-btn>
+        <v-chip class="ml-4 mb-2" small text @click="clearFilters">Clear Filters</v-chip>
       </v-flex>
     </v-layout>
   </v-card>
