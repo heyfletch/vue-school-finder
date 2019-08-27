@@ -75,7 +75,7 @@ export default {
   data: () => ({
     grades: ['TK', 'K', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
     careOptions: ['Before Care', 'After Care'],
-    transportOptions: ['LA', 'LC', '70', '71', '71M', '72', '72M', '74', '76', '376', '681', 'BART'],
+    transportOptions: ['LA', 'LC', '70', '71', '72', '72M', '74', '76', '376', '681', 'BART'],
     neighborhoods: ['San Pablo', 'Richmond'],
   }),
   computed: {
