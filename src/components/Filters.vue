@@ -63,7 +63,10 @@
         </v-card-text>
       </v-flex>
       <v-flex xs12>
-        <v-chip class="ml-4 mb-2" small text @click="clearFilters">Clear Filters</v-chip>
+        <div class="d-flex">
+          <v-chip class="ml-4 mb-2" small text @click="clearFilters">Clear Filters</v-chip>
+          <span class="ml-4">Schools shown: {{ schools }}</span>
+        </div>
       </v-flex>
     </v-layout>
   </v-card>
@@ -81,6 +84,9 @@ export default {
   computed: {
     locale() {
       return this.$store.state.locale;
+    },
+    schools() {
+      return this.$store.state.filteredSchools.length;
     }
   },
   methods: {
