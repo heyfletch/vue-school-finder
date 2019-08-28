@@ -133,7 +133,7 @@ export default {
   font-size: 20px;
   text-align: center;
   height: 100px;
-  bottom: 0px;
+  bottom: -4px;
   left: 0;
   right: 0;
   background-image: linear-gradient(#ffffff00, #ffffffff);

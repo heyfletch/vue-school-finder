@@ -21,7 +21,14 @@ export default new Vuex.Store({
     filters: [],
     selectedSchool: undefined,
     language: LANG,
-    locale: locales[LANG]
+    locale: locales[LANG],
+    map: {
+      center: {
+        lat: 37.9127694,
+        lng: -122.3570752
+      },
+      zoom: 15
+    }
   },
   getters: {
     getFilter(state) {
