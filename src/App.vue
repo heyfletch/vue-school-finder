@@ -62,7 +62,7 @@ export default {
     selectedSchool(newV) {
       if (this.isMobile && newV) {
         const rect = this.$refs.container.getBoundingClientRect();
-        window.scrollTo(0, rect.top);
+        window.scrollBy(0, rect.top);
       }
     }
   },
