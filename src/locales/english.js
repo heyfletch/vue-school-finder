@@ -14,8 +14,12 @@ export default {
   applyNow: "Apply Now",
   none: "None",
   yes: "Yes",
+  no: "No",
   extendedCare: "Extended Care",
   neighborhood: "Neighborhood",
   noSchoolsFound: "No schools with that criteria found.",
-  goBack: "Back to school list"
+  goBack: "Back to school list",
+  moreSchoolsHere: "More Schools Here",
+  clearFilters: "Clear Filters",
+  schoolsShown: "Schools Shown"
 }

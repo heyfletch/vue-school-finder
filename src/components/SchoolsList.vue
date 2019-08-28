@@ -26,7 +26,7 @@
                           <span>{{ locale.grades }} {{ school.acf.schoolGrades[0] }}-{{ school.acf.schoolGrades[school.acf.schoolGrades.length - 1] }}, </span>
 
                           <span v-if="school.acf.schoolUniforms">{{ locale.uniforms }}</span>
-                          <span v-else>No {{ locale.uniforms }}</span>
+                          <span v-else>{{ locale.no }} {{ locale.uniforms }}</span>
 
                           <span
                             v-if="school.acf.schoolBeforeHours && school.acf.schoolAfterHours"

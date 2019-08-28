@@ -14,9 +14,14 @@ export default {
   applyNow: "Inscribirse",
   none: "Nada",
   yes: "Sí",
+  no: "No",   // TODO: Check this
   extendedCare: "Cuidado Extendido",
   neighborhood: "Vecindario",
-  noSchoolsFound: "No se encontraron escuelas con ese criterio."
+  noSchoolsFound: "No se encontraron escuelas con ese criterio.", // TODO: This one is google translated, check it?
+  goBack: "Translation Needed",
+  moreSchoolsHere: "Translation Needed",
+  clearFilters: "Translation Needed",
+  schoolsShown: "Translation Needed"
 }
 
 //translations
