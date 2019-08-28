@@ -1,5 +1,5 @@
 <template>
-  <v-card class="mx-1 mt-5 py-1 schools">
+  <v-card class="mx-1 mt-5 py-1 schools" ref="schools">
     <v-item-group v-if="schools.length > 0">
       <v-container class="pa-1 pb-0">
         <v-layout wrap>
@@ -49,17 +49,45 @@
         {{ locale.noSchoolsFound }}
       </h4>
     </v-card>
+    <transition name="fade">
+      <div class="scroll-down" v-if="schools.length > 5 && scrollIndicator">
+        <div class="arrow arrow-left">
+          <div class="arrow-block"></div>
+          <div class="arrow-bottom-left"></div>
+          <div class="arrow-bottom-right"></div>
+        </div>
+        <div class="arrow arrow-right">
+          <div class="arrow-block"></div>
+          <div class="arrow-bottom-left"></div>
+          <div class="arrow-bottom-right"></div>
+        </div>
+        <span>
+          More schools here
+        </span>
+      </div>
+    </transition>
   </v-card>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      scrollIndicator: true
+    }
+  },
   computed: {
     schools() {
       return this.$store.state.filteredSchools;
     },
     locale() {
       return this.$store.state.locale;
+    }
+  },
+  watch: {
+    schools() {
+      this.$refs.schools.$el.scrollBy(0, -5000);
+      this.scrollIndicator = true;
     }
   },
   methods: {
@@ -69,6 +97,11 @@ export default {
     selected(school) {
       return this.$store.state.selectedSchool === school;
     }
+  },
+  mounted() {
+    this.$refs.schools.$el.addEventListener("scroll", () => {
+      this.scrollIndicator = false;
+    })
   }
 }
 </script>
@@ -91,6 +124,75 @@ export default {
 .schools {
   height: 700px;
   overflow-y: auto;
+  position: relative;
+}
+
+.scroll-down {
+  position: sticky;
+  z-index: 300;
+  font-size: 20px;
+  text-align: center;
+  height: 100px;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+  background-image: linear-gradient(#ffffff00, #ffffffff);
+}
+.scroll-down span {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  color: #0d47a1aa;
+}
+
+.arrow {
+  position: absolute;
+  bottom: 5px;
+}
+.arrow.arrow-left {
+  left: 35%;
+}
+.arrow.arrow-right {
+  right: 35%;
+}
+
+.arrow-block {
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  left: calc(50% - 5px);
+  bottom: 10px;
+  background-color: #0d47a1aa;
+}
+.arrow-bottom-left {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+	display: block;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 0 10.0px 10.0px 0;
+	border-color: transparent #0d47a1aa transparent transparent;
+}
+.arrow-bottom-right {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10.0px 10.0px 0 0;
+  border-color: #0d47a1aa transparent transparent transparent;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
 }
 
 @media ( max-width: 959px) {
