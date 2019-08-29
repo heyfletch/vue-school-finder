@@ -20,7 +20,7 @@
           <v-flex xs12 md7 lg5>
             <SchoolsList />
           </v-flex>
-          <v-flex d-none d-lg-block lg4>
+          <v-flex d-lg-block lg4>
             <Profile />
             <Maps />
           </v-flex>

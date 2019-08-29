@@ -19,7 +19,7 @@ export default {
   neighborhood: "Vecindario",
   noSchoolsFound: "No se encontraron escuelas con ese criterio.",
   goBack: "Volver a la lista",
-  moreSchoolsHere: " ver más ",
-  clearFilters: "restablecer",
+  moreSchoolsHere: "Ver Más",
+  clearFilters: "Restablecer",
   schoolsShown: "Escuelas Mostradas"
 };

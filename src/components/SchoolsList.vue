@@ -51,18 +51,9 @@
     </v-card>
     <transition name="fade">
       <div class="scroll-down" v-if="schools.length > 5 && scrollIndicator">
-        <div class="arrow arrow-left">
-          <div class="arrow-block"></div>
-          <div class="arrow-bottom-left"></div>
-          <div class="arrow-bottom-right"></div>
-        </div>
-        <div class="arrow arrow-right">
-          <div class="arrow-block"></div>
-          <div class="arrow-bottom-left"></div>
-          <div class="arrow-bottom-right"></div>
-        </div>
-        <span>
-          More schools here
+        <span class="d-none d-md-block">
+          <v-icon large>mdi-chevron-down</v-icon>
+          <!-- {{ locale.moreSchoolsHere }} -->
         </span>
       </div>
     </transition>
@@ -132,7 +123,7 @@ export default {
   z-index: 300;
   font-size: 20px;
   text-align: center;
-  height: 100px;
+  height: 150px;
   bottom: -4px;
   left: 0;
   right: 0;

@@ -19,7 +19,7 @@ export default {
   neighborhood: "Neighborhood",
   noSchoolsFound: "No schools with that criteria found.",
   goBack: "Back to schools",
-  moreSchoolsHere: " view more",
-  clearFilters: "reset filters",
+  moreSchoolsHere: "View More",
+  clearFilters: "Reset",
   schoolsShown: "Schools Shown"
 }
