@@ -1,6 +1,6 @@
 
 export default {
-  grades: "Grades",
+  grades: "Your Grade(s)",
   gradeOffered: "Grades Offered",
   uniforms: "Uniforms",
   beforeCare: "Before Care",
@@ -18,8 +18,8 @@ export default {
   extendedCare: "Extended Care",
   neighborhood: "Neighborhood",
   noSchoolsFound: "No schools with that criteria found.",
-  goBack: "Back to school list",
-  moreSchoolsHere: "More Schools Here",
-  clearFilters: "Clear Filters",
+  goBack: "Back to schools",
+  moreSchoolsHere: " view more",
+  clearFilters: "reset filters",
   schoolsShown: "Schools Shown"
 }

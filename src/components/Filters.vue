@@ -14,10 +14,6 @@
         <v-card-text>
           <h2 class="title mb-2">{{ locale.extendedCare }}</h2>
 
-          <!-- <v-chip-group v-if="isEnglish" column multiple>
-            <v-chip v-for="careOption in careOptions" :key="careOption" outlined small color="primary" @click="toggleFilter('careNeeds', careOption)">{{ careOption }}</v-chip>
-          </v-chip-group> -->
-
           <v-chip-group column multiple :value="getFilters('careNeeds')">
             <v-chip outlined small color="primary" value="Before Care" @click="toggleFilter('careNeeds', 'Before Care')">{{ locale.beforeCare }}</v-chip>
             <v-chip outlined small color="primary" value="After Care" @click="toggleFilter('careNeeds', 'After Care')">{{ locale.afterCare }}</v-chip>
