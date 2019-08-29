@@ -7,7 +7,7 @@
             <v-item v-slot:default="{ active, toggle }">
               <v-card :dark="selected(school)" :color="selected(school) ? 'primary' : ''" @click="selectSchool(school)" class="mb-1">
                 <v-list-item>
-                  <v-list-item-content class="align-self-start pb-0">
+                  <v-list-item-content class="pb-0">
                     <v-layout pb-3 pl-1>
                       <v-list-item-avatar class="mr-5" size="90">
                         <v-img

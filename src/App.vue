@@ -8,7 +8,6 @@
               <v-icon large>mdi-chevron-left</v-icon> {{ locale.goBack }}
             </v-btn>
           </v-flex>
-
           <v-flex xs12>
             <Profile />
           </v-flex>
