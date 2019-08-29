@@ -4,8 +4,11 @@
       <v-container grid-list-md ref="container">
         <v-layout wrap v-if="isMobile && selectedSchool">
           <v-flex xs12>
-            <v-btn color="primary" @click="unselectSchool">{{ locale.goBack }}</v-btn>
+            <v-btn @click="unselectSchool" text class="pl-0">
+              <v-icon large>mdi-chevron-left</v-icon> {{ locale.goBack }}
+            </v-btn>
           </v-flex>
+
           <v-flex xs12>
             <Profile />
           </v-flex>
