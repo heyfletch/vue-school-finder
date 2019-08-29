@@ -1,6 +1,6 @@
 
 export default {
-  grades: "Your Grade(s)",
+  grades: "Grades",
   gradeOffered: "Grades Offered",
   uniforms: "Uniforms",
   beforeCare: "Before Care",
