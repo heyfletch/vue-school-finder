@@ -123,7 +123,7 @@ export default {
   z-index: 300;
   font-size: 20px;
   text-align: center;
-  height: 150px;
+  height: 100px;
   bottom: -4px;
   left: 0;
   right: 0;

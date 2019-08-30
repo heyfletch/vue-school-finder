@@ -5,7 +5,7 @@
       :center="center"
       :zoom="zoom"
       map-type-id="roadmap"
-      style="width: 100%; height: 300px"
+      style="width: 100%; height: 400px"
     >
       <GmapMarker v-for="(school, index) in schools" :key="index" :clickable="true" @click="selectSchool(school)" :position="getLatLng(school)"></GmapMarker>
     </GmapMap>
