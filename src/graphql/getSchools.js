@@ -27,6 +27,11 @@ export default `query getSchools($language: LanguageCodeFilterEnum!) {
         schoolTransportation
         schoolHours
         schoolIntro
+        schoolMap {
+          latitude
+          longitude
+          streetAddress
+        }
       }
     }
   }

@@ -1,42 +1,93 @@
 <template>
   <v-card class="mx-2 mt-5">
     <GmapMap
-      :center="map.center"
-      :zoom="map.zoom"
-      map-type-id="terrain"
+      ref="mapRef"
+      :center="center"
+      :zoom="zoom"
+      map-type-id="roadmap"
       style="width: 100%; height: 300px"
     >
-      <GmapMarker :position="schools[0]"></GmapMarker>
-      <GmapMarker :position="schools[1]"></GmapMarker>
-      <GmapMarker :position="schools[2]"></GmapMarker>
+      <GmapMarker v-for="(school, index) in schools" :key="index" :clickable="true" @click="selectSchool(school)" :position="getLatLng(school)"></GmapMarker>
     </GmapMap>
   </v-card>
 </template>
 
 <script>
+import { gmapApi } from 'vue2-google-maps';
+
 export default {
   computed: {
-    map() {
-      return this.$store.state.map;
-    }
+    schools() {
+      return this.$store.state.schools;
+    },
+    selectedSchool() {
+      return this.$store.state.selectedSchool;
+    },
+    google: gmapApi
   },
   data() {
     return {
-      schools: [
-        {
-          lat: 37.9127694,
-          lng: -122.3570752
-        },
-        {
-          lat: 37.9113755,
-          lng: -122.3570886
-        },
-        {
-          lat: 37.9774973,
-          lng: -122.328765
-        }
-      ]
+      zoom: 12,
+      initialCenter: {
+        lat: 37.949996,
+        lng: -122.334397
+      },
+      center: {
+        lat: 37.949996,
+        lng: -122.334397
+      },
+      map: undefined,
+      bounds: undefined
     }
+  },
+  watch: {
+    selectedSchool(newV) {
+      if (newV) {
+        this.center = this.getLatLng(newV);
+        this.zoom = 15;
+      }
+      else {
+        this.zoom = 11;
+        this.center = this.initialCenter;
+        this.map.fitBounds(this.bounds);
+      }
+    },
+    schools(newV) {
+      this.bounds = new this.google.maps.LatLngBounds();
+      for (let school of newV) {
+        this.bounds.extend(this.getLatLng(school));
+      }
+
+      if (this.map) {
+        this.map.fitBounds(this.bounds);
+      }
+    }
+  },
+  methods: {
+    getLatLng(school) {
+      return {
+        lat: school.acf.schoolMap.latitude,
+        lng: school.acf.schoolMap.longitude
+      }
+    },
+    selectSchool(school) {
+      this.$store.commit("selectSchool", school);
+    }
+  },
+  mounted() {
+    this.$refs.mapRef.$mapPromise.then((map) => {
+      this.map = map;
+      if (this.bounds) {
+        map.fitBounds(this.bounds);
+      }
+      else if (this.schools.length > 0) {
+        this.bounds = new this.google.maps.LatLngBounds();
+        for (let school of this.schools) {
+          this.bounds.extend(this.getLatLng(school));
+        }
+        this.map.fitBounds(this.bounds);
+      }
+    });
   }
 }
 </script>
