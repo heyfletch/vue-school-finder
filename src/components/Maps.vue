@@ -5,15 +5,22 @@
       :center="center"
       :zoom="zoom"
       map-type-id="roadmap"
+      :options="mapStyle"
       style="width: 100%; height: 400px"
     >
-      <GmapMarker v-for="(school, index) in schools" :key="index" :clickable="true" @click="selectSchool(school)" :position="getLatLng(school)"></GmapMarker>
+      <GmapMarker
+        v-for="(school, index) in schools"
+        :key="index"
+        :clickable="true"
+        @click="selectSchool(school)"
+        :position="getLatLng(school)"
+      ></GmapMarker>
     </GmapMap>
   </v-card>
 </template>
 
 <script>
-import { gmapApi } from 'vue2-google-maps';
+import { gmapApi } from "vue2-google-maps";
 
 export default {
   computed: {
@@ -37,16 +44,21 @@ export default {
         lng: -122.334397
       },
       map: undefined,
-      bounds: undefined
-    }
+      bounds: undefined,
+      mapStyle: {
+        fullscreenControl: false,
+        streetViewControl: false,
+        mapTypeControl: false,
+        styles: [] // TODO maybe
+      }
+    };
   },
   watch: {
     selectedSchool(newV) {
       if (newV) {
         this.center = this.getLatLng(newV);
         this.zoom = 15;
-      }
-      else {
+      } else {
         this.zoom = 11;
         this.center = this.initialCenter;
         this.map.fitBounds(this.bounds);
@@ -68,19 +80,18 @@ export default {
       return {
         lat: school.acf.schoolMap.latitude,
         lng: school.acf.schoolMap.longitude
-      }
+      };
     },
     selectSchool(school) {
       this.$store.commit("selectSchool", school);
     }
   },
   mounted() {
-    this.$refs.mapRef.$mapPromise.then((map) => {
+    this.$refs.mapRef.$mapPromise.then(map => {
       this.map = map;
       if (this.bounds) {
         map.fitBounds(this.bounds);
-      }
-      else if (this.schools.length > 0) {
+      } else if (this.schools.length > 0) {
         this.bounds = new this.google.maps.LatLngBounds();
         for (let school of this.schools) {
           this.bounds.extend(this.getLatLng(school));
@@ -89,5 +100,5 @@ export default {
       }
     });
   }
-}
+};
 </script>
