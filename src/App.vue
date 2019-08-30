@@ -4,9 +4,9 @@
       <v-container grid-list-md ref="container">
         <v-layout wrap v-if="isMobile && selectedSchool">
           <v-flex xs12>
-            <v-btn @click="unselectSchool" text class="pl-0">
+            <v-chip @click="unselectSchool" class="text-uppercase font-weight-medium pl-1 pr-5 ml-2">
               <v-icon large>mdi-chevron-left</v-icon> {{ locale.goBack }}
-            </v-btn>
+            </v-chip>
           </v-flex>
           <v-flex xs12>
             <Profile />
