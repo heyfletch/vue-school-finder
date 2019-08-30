@@ -14,6 +14,8 @@ const LANG = lang.slice(0, 2).toUpperCase() === "ES" ? "ES" : "EN";
 
 Vue.use(Vuex);
 
+const QUERY_VERSION = 2;
+
 export default new Vuex.Store({
   state: {
     schools: [],
@@ -75,7 +77,7 @@ export default new Vuex.Store({
       const cached = JSON.parse(storage.getItem("schools"));
 
       let schools
-      if (!cached || cached.expires < Date.now() || cached.language !== state.language) {
+      if (!cached || cached.expires < Date.now() || cached.language !== state.language || !cached.queryVersion || cached.queryVersion !== QUERY_VERSION) {
         const resp = await (await fetch("https://enrollwcc.kinsta.cloud/graphql", {
           method: 'POST',
           headers: {
@@ -90,6 +92,7 @@ export default new Vuex.Store({
         const obj = {
           schools,
           expires: Date.now() + 1000 * 60 * 60 * 24, // Expires in a day
+          queryVersion: QUERY_VERSION, // This is so we can force-update the data if we change the graphql query, like with the map coordinates.
           language: state.language // Let's store this in case it changes.
         }
 
