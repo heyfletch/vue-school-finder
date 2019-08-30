@@ -111,13 +111,11 @@ export default {
 .school-data {
   line-height: 1.3;
 }
-
 .schools {
-  height: 700px;
+  height: 644px;
   overflow-y: auto;
   position: relative;
 }
-
 .scroll-down {
   position: sticky;
   z-index: 300;
@@ -131,56 +129,12 @@ export default {
 }
 .scroll-down span {
   position: absolute;
-  bottom: 0px;
+  bottom: -3px;
   left: 0px;
   right: 0px;
-  color: #0d47a1aa;
 }
-
-.arrow {
-  position: absolute;
-  bottom: 5px;
-}
-.arrow.arrow-left {
-  left: 35%;
-}
-.arrow.arrow-right {
-  right: 35%;
-}
-
-.arrow-block {
-  width: 10px;
-  height: 10px;
-  position: absolute;
-  left: calc(50% - 5px);
-  bottom: 10px;
-  background-color: #0d47a1aa;
-}
-.arrow-bottom-left {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-	display: block;
-	width: 0;
-	height: 0;
-	border-style: solid;
-	border-width: 0 10.0px 10.0px 0;
-	border-color: transparent #0d47a1aa transparent transparent;
-}
-.arrow-bottom-right {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  display: block;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 10.0px 10.0px 0 0;
-  border-color: #0d47a1aa transparent transparent transparent;
-}
-
 .fade-enter-active, .fade-leave-active {
-  transition: opacity .1s;
+  transition: opacity .3s;
 }
 .fade-enter, .fade-leave-to {
   opacity: 0;
