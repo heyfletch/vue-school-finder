@@ -108,6 +108,7 @@ export default {
     },
     clearFilters() {
       this.$store.dispatch("clearFilters");
+      this.$store.commit("unselectSchool");
     }
   }
 };
