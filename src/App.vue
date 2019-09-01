@@ -82,3 +82,9 @@ export default {
   }
 };
 </script>
+
+<style>
+.v-application--wrap {
+  height: auto;
+}
+</style>
