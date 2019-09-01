@@ -10,7 +10,7 @@
           </v-chip-group>
           <p class="my-3"><b>OR</b></p>
           <p>I am ready to</p>
-          <v-btn color="primary" min-width="300px" large class="mb-3" @click="applyNow">APPLY NOW</v-btn>
+          <v-btn href="https://enrollwcc.org/apply/" color="primary" min-width="300px" large class="mb-3">APPLY NOW</v-btn>
           <p>
             to up to <b>12</b>
             <br/>
@@ -50,9 +50,11 @@
       toggleFilter(type, value) {
         if (this.hasFilter(type, value)) {
           this.removeFilter(type, value);
+          this.scrollToFinder();
         }
         else {
           this.addFilter(type, value);
+          this.scrollToFinder();
         }
       },
       addFilter(type, value) {
@@ -61,7 +63,7 @@
       removeFilter(type, value) {
         this.$store.dispatch("removeFilter", {type, value});
       },
-      applyNow() {
+      scrollToFinder() {
         try {
           window.scrollTo({
             left: 0,
