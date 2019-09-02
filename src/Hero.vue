@@ -6,7 +6,7 @@
           <h4 class="mb-2">{{ locale.heroTitle }}</h4>
           <p><b>{{ locale.heroSearchSchools }}</b> {{ locale.heroStudentEntering }}</p>
           <v-chip-group class="hero-chip-group" column multiple :value="getFilters('grade')">
-            <v-chip v-for="grade in grades" :key="grade" label outlined color="primary" :value="grade" @click="addFilter('grade', grade)">{{ grade }}</v-chip>
+            <v-chip v-for="grade in grades" :key="grade" label outlined color="primary" :value="grade" @click="toggleFilter('grade', grade)">{{ grade }}</v-chip>
           </v-chip-group>
           <p class="my-3"><b>{{ locale.heroOR }}</b></p>
           <p>{{ locale.heroReady }}</p>
@@ -52,11 +52,18 @@
       getFilters(type) {
         return this.$store.getters.getFiltersByType(type).map(v => v.value);
       },
-      addFilter(type, value) {
-        if (!this.hasFilter(type, value)) {
-          this.$store.dispatch("addFilter", {type, value});
+      toggleFilter(type, value) {
+        if (this.hasFilter(type, value)) {
+          this.removeFilter(type, value);
+          this.scrollToFinder();
         }
-        this.scrollToFinder();
+        else {
+          this.addFilter(type, value);
+          this.scrollToFinder();
+        }
+      },
+      addFilter(type, value) {
+        this.$store.dispatch("addFilter", {type, value});
       },
       removeFilter(type, value) {
         this.$store.dispatch("removeFilter", {type, value});

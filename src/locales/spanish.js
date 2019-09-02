@@ -22,12 +22,12 @@ export default {
   moreSchoolsHere: "Ver Más",
   clearFilters: "Restablecer",
   schoolsShown: "Escuelas Mostradas",
-  heroTitle: "Apply to West Contra Costa Charter Schools!",
-  heroSearchSchools: "Search schools:",
-  heroStudentEntering: "My student is entering grade",
-  heroOR: "OR",
-  heroReady: "I am ready to",
-  heroApplyNow: "APPLY NOW",
-  heroUpTo: "to up to ",
-  heroCharterSchools: "West Contra Costa Charter Schools"
+  heroTitle: "Inscribirse a Escuelas en West Contra Costa!",
+  heroSearchSchools: "Buscar escuelas:",
+  heroStudentEntering: "Mi estudiante está entrando",
+  heroOR: "O",
+  heroReady: "Estoy listo para",
+  heroApplyNow: "INSCRIBIRSE",
+  heroUpTo: "a hasta ",
+  heroCharterSchools: "Escuelas en West Contra Costa"
 };
