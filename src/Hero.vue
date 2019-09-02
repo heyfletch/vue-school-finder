@@ -3,18 +3,18 @@
     <v-container class="hero-container">
       <v-row no-gutters justify="center" class="hero-row mx-auto">
         <v-col lg="6" align="center">
-          <h4 class="mb-2">Apply to West Contra Costa Charter Schools!</h4>
-          <p><b>Search schools:</b> My student is entering grade</p>
+          <h4 class="mb-2">{{ locale.heroTitle }}</h4>
+          <p><b>{{ locale.heroSearchSchools }}</b> {{ locale.heroStudentEntering }}</p>
           <v-chip-group class="hero-chip-group" column multiple :value="getFilters('grade')">
-            <v-chip v-for="grade in grades" :key="grade" label outlined color="primary" :value="grade" @click="toggleFilter('grade', grade)">{{ grade }}</v-chip>
+            <v-chip v-for="grade in grades" :key="grade" label outlined color="primary" :value="grade" @click="addFilter('grade', grade)">{{ grade }}</v-chip>
           </v-chip-group>
-          <p class="my-3"><b>OR</b></p>
-          <p>I am ready to</p>
-          <v-btn href="https://enrollwcc.org/apply/" color="primary" min-width="300px" large class="mb-3">APPLY NOW</v-btn>
+          <p class="my-3"><b>{{ locale.heroOR }}</b></p>
+          <p>{{ locale.heroReady }}</p>
+          <v-btn href="https://enrollwcc.org/apply/" color="primary" min-width="300px" large class="mb-3">{{ locale.heroApplyNow }}</v-btn>
           <p>
-            to up to <b>12</b>
+            {{ locale.heroUpTo }} <b>12</b>
             <br/>
-            West Contra Costa Charter Schools
+            {{ locale.heroCharterSchools }}
           </p>
         </v-col>
         <v-col lg="6"></v-col>
@@ -29,6 +29,11 @@
       return {
         grades: ['TK', 'K', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
         appHeight: 0
+      }
+    },
+    computed: {
+      locale() {
+        return this.$store.state.locale;
       }
     },
     mounted() {
@@ -47,18 +52,11 @@
       getFilters(type) {
         return this.$store.getters.getFiltersByType(type).map(v => v.value);
       },
-      toggleFilter(type, value) {
-        if (this.hasFilter(type, value)) {
-          this.removeFilter(type, value);
-          this.scrollToFinder();
-        }
-        else {
-          this.addFilter(type, value);
-          this.scrollToFinder();
-        }
-      },
       addFilter(type, value) {
-        this.$store.dispatch("addFilter", {type, value});
+        if (!this.hasFilter(type, value)) {
+          this.$store.dispatch("addFilter", {type, value});
+        }
+        this.scrollToFinder();
       },
       removeFilter(type, value) {
         this.$store.dispatch("removeFilter", {type, value});
