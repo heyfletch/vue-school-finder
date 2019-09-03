@@ -1,12 +1,8 @@
 <template>
   <v-app class="hero-app">
-    <v-container>
-
-      <v-chip-group class="hero-chip-group" column multiple :value="getFilters('grade')">
-        <v-chip v-for="grade in grades" :key="grade" label outlined color="primary" :value="grade" @click="toggleFilter('grade', grade)">{{ grade }}</v-chip>
-      </v-chip-group>
-
-    </v-container>
+    <v-chip-group class="hero-chip-group" column multiple :value="getFilters('grade')">
+      <v-chip v-for="grade in grades" :key="grade" label outlined color="primary" :value="grade" @click="toggleFilter('grade', grade)">{{ grade }}</v-chip>
+    </v-chip-group>
   </v-app>
 </template>
 
@@ -74,7 +70,7 @@
 
 <style>
 .hero-app {
-  height: 110px;
+  height: 85px;
 }
 .hero-chip-group {
   width: 320px;
