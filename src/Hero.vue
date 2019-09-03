@@ -1,7 +1,7 @@
 <template>
   <v-app class="hero-app">
     <v-chip-group class="hero-chip-group" column multiple :value="getFilters('grade')">
-      <v-chip class="hero-chip"
+      <v-chip
         v-for="grade in grades"
         :key="grade"
         label

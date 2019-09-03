@@ -1,5 +1,5 @@
 <template>
-  <v-card class="mx-1 mt-5 py-1 schools" ref="schools">
+  <v-card class="mx-1 mt-4 py-1 schools" ref="schools">
     <v-item-group v-if="schools.length > 0">
       <v-container class="pa-1 pb-0">
         <v-layout wrap>
@@ -112,7 +112,7 @@ export default {
   line-height: 1.3;
 }
 .schools {
-  height: 644px;
+  height: 680px;
   overflow-y: auto;
   position: relative;
 }

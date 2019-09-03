@@ -1,5 +1,5 @@
 <template>
-  <v-card class="mx-2 mt-5">
+  <v-card class="mx-2 mt-4">
     <GmapMap
       ref="mapRef"
       :center="center"
