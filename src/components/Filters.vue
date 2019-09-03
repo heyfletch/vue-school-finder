@@ -61,7 +61,7 @@
       <v-flex xs12>
         <div class="d-flex">
           <v-chip class="ml-4 mb-2" small text @click="clearFilters">{{ locale.clearFilters }}</v-chip>
-          <span class="ml-3">{{ locale.schoolsShown }}: <b>{{ schools }}</b></span>
+          <span class="ml-2">{{ locale.schoolsShown }}: <b>{{ schools }}</b></span>
         </div>
       </v-flex>
     </v-layout>
