@@ -57,7 +57,7 @@
 
             <v-card-actions>
               <v-btn :href="school.link" @click="gaHandler('Learn More', school.title)" text color="primary">{{ locale.learnMore }}</v-btn>
-              <v-btn href="https://enrollwcc.org/apply/" @click="gaHandler('Apply Now', school.title)" text color="primary">{{ locale.applyNow }}</v-btn>
+              <v-btn :href="locale.applyLink" @click="gaHandler('Apply Now', school.title)" text color="primary">{{ locale.applyNow }}</v-btn>
             </v-card-actions>
           </v-card>
         </v-flex>

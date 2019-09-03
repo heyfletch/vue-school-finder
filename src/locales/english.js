@@ -6,12 +6,13 @@ export default {
   beforeCare: "Before Care",
   afterCare: "After Care",
   beforeAfterCare: "Before & After Care",
-  principal:  "Principal",
+  principal: "Principal",
   mission: "Mission",
   publicTransportation: "Public Transportation",
   enrollmentSize: "Enrollment Size",
   learnMore: "Learn More",
   applyNow: "Apply Now",
+  applyLink: "https://enrollwcc.kinsta.cloud/apply/",
   none: "None",
   yes: "Yes",
   no: "No",
@@ -22,12 +23,4 @@ export default {
   moreSchoolsHere: "View More",
   clearFilters: "Reset",
   schoolsShown: "Schools Shown",
-  heroTitle: "Apply to West Contra Costa Charter Schools!",
-  heroSearchSchools: "Search schools:",
-  heroStudentEntering: "My student is entering grade",
-  heroOR: "OR",
-  heroReady: "I am ready to",
-  heroApplyNow: "APPLY NOW",
-  heroUpTo: "to up to ",
-  heroCharterSchools: "West Contra Costa Charter Schools"
-}
+};

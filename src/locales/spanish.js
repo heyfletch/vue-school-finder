@@ -12,6 +12,7 @@ export default {
   enrollmentSize: "Matricula Total",
   learnMore: "Aprende más",
   applyNow: "Inscribirse",
+  applyLink: "https://enrollwcc.kinsta.cloud/es/como-inscribirse/",
   none: "Nada",
   yes: "Sí",
   no: "No",
@@ -22,12 +23,4 @@ export default {
   moreSchoolsHere: "Ver Más",
   clearFilters: "Restablecer",
   schoolsShown: "Escuelas Mostradas",
-  heroTitle: "Inscribirse a Escuelas en West Contra Costa!",
-  heroSearchSchools: "Buscar escuelas:",
-  heroStudentEntering: "Mi estudiante está entrando",
-  heroOR: "O",
-  heroReady: "Estoy listo para",
-  heroApplyNow: "INSCRIBIRSE",
-  heroUpTo: "a hasta ",
-  heroCharterSchools: "Escuelas en West Contra Costa"
 };
