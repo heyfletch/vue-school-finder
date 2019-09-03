@@ -93,9 +93,7 @@ export default {
   text-align: center;
 }
 
-p,
-b,
-h4 {
+p, b {
   color: #205089;
 }
 </style>
