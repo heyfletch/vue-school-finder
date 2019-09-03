@@ -116,6 +116,9 @@ export default {
   overflow-y: auto;
   position: relative;
 }
+.schools h4 {
+  margin: 0;
+}
 .scroll-down {
   position: sticky;
   z-index: 300;

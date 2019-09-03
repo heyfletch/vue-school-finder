@@ -14,6 +14,11 @@
           <v-flex xs12>
             <Maps />
           </v-flex>
+          <v-flex xs12>
+            <v-chip @click="unselectSchool" class="text-uppercase font-weight-medium pl-1 pr-5 ml-2 mt-4">
+              <v-icon large>mdi-chevron-left</v-icon> {{ locale.goBack }}
+            </v-chip>
+          </v-flex>
         </v-layout>
         <v-layout wrap v-else>
           <v-flex xs12 md5 lg3>

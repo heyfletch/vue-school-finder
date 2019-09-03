@@ -3,7 +3,7 @@
     <v-container class="pa-1 pb-0">
       <v-layout wrap>
         <v-flex v-if="school">
-          <v-card class="mx-1 mt-lg-4 mt-sm-0">
+          <v-card class="mx-1 mt-lg-3 mt-sm-0">
             <v-img
               class="white--text primary"
               height="200px"
