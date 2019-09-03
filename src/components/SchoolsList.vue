@@ -84,7 +84,6 @@ export default {
   methods: {
     selectSchool(school) {
       this.$store.commit("selectSchool", school);
-      document.getElementById("hero-section").style.display = "none";
     },
     selected(school) {
       return this.$store.state.selectedSchool === school;

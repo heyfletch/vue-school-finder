@@ -79,7 +79,6 @@ export default {
     },
     unselectSchool() {
       this.$store.commit("unselectSchool");
-      document.getElementById("hero-section").style.display = "block";
     }
   },
   created() {
