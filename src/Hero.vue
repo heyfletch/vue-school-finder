@@ -1,24 +1,11 @@
 <template>
   <v-app class="hero-app">
-    <v-container class="hero-container">
-      <v-row no-gutters justify="center" class="hero-row mx-auto">
-        <v-col lg="6" align="center">
-          <h4 class="mb-2">{{ locale.heroTitle }}</h4>
-          <p><b>{{ locale.heroSearchSchools }}</b> {{ locale.heroStudentEntering }}</p>
-          <v-chip-group class="hero-chip-group" column multiple :value="getFilters('grade')">
-            <v-chip v-for="grade in grades" :key="grade" label outlined color="primary" :value="grade" @click="toggleFilter('grade', grade)">{{ grade }}</v-chip>
-          </v-chip-group>
-          <p class="my-3"><b>{{ locale.heroOR }}</b></p>
-          <p>{{ locale.heroReady }}</p>
-          <v-btn href="https://enrollwcc.org/apply/" color="primary" min-width="300px" large class="mb-3">{{ locale.heroApplyNow }}</v-btn>
-          <p>
-            {{ locale.heroUpTo }} <b>12</b>
-            <br/>
-            {{ locale.heroCharterSchools }}
-          </p>
-        </v-col>
-        <v-col lg="6"></v-col>
-      </v-row>
+    <v-container>
+
+      <v-chip-group class="hero-chip-group" column multiple :value="getFilters('grade')">
+        <v-chip v-for="grade in grades" :key="grade" label outlined color="primary" :value="grade" @click="toggleFilter('grade', grade)">{{ grade }}</v-chip>
+      </v-chip-group>
+
     </v-container>
   </v-app>
 </template>
@@ -87,26 +74,12 @@
 
 <style>
 .hero-app {
-  height: 400px;
+  height: 110px;
 }
-
-.hero-container {
-  background-color: #CDDBE7;
-  height: 400px;
-}
-
-.hero-row {
-  width: 800px;
-}
-
 .hero-chip-group {
   width: 320px;
-  text-align: center;
+  text-align: left;
 }
-.hero-chip-group .v-slide-group__content {
-  justify-content: center;
-}
-
 p, b, h4 {
   color: #205089;
 }
