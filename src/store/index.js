@@ -171,10 +171,17 @@ export default new Vuex.Store({
           hitType: "event",
           eventCategory: "School Profile",
           eventAction: payload.action,
-          eventLabel: payload.school
+          eventLabel: payload.school,
+          transport: "beacon",
+          hitCallback() {
+            // eslint-disable-next-line no-console
+            console.log("GA Callback!");
+          }
         });
       }
       catch (e) {
+        // eslint-disable-next-line no-console
+        console.log(e);
         // No ga detected, moving on.
       }
     }
