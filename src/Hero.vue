@@ -5,8 +5,8 @@
         v-for="grade in grades"
         :key="grade"
         label
-        outlined
-        color="primary"
+        color="white"
+        text-color="primary"
         :value="grade"
         @click="toggleFilter('grade', grade)"
       >{{ grade }}</v-chip>
