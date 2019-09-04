@@ -67,9 +67,19 @@ export default {
   },
   watch: {
     selectedSchool(newV) {
-      if (this.isMobile && newV) {
+      if (this.isMobile) {
         const rect = this.$refs.container.getBoundingClientRect();
         window.scrollBy(0, rect.top);
+
+        const el = document.getElementById("hero-section");
+        if (el) {
+          if (newV) {
+            el.style.display = "none";
+          }
+          else {
+            el.style.display = "block";
+          }
+        }
       }
     }
   },
@@ -91,11 +101,5 @@ export default {
 <style>
 .v-application--wrap {
   min-height: auto;
-}
-
-@media screen and (max-width: 1264px) {
-  #hero-section {
-    display: none;
-  }
 }
 </style>
