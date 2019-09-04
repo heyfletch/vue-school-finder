@@ -34,7 +34,7 @@ export default {
     for (let a of app) {
       if (!a.classList.value.split(" ").includes("hero-app")) {
         // This is the actual app
-        this.appHeight = a.offsetTop;
+        this.appHeight = a.getBoundingClientRect().top + window.scrollY;
       }
     }
   },
