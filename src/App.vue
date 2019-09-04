@@ -92,4 +92,10 @@ export default {
 .v-application--wrap {
   min-height: auto;
 }
+
+@media screen and (max-width: 1264px) {
+  #hero-section {
+    display: none;
+  }
+}
 </style>
