@@ -88,4 +88,7 @@ export default {
 .v-application .subtitle-1 {
   line-height: 1.4rem;
 }
+p {
+  color: #235290;
+}
 </style>

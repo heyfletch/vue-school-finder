@@ -1,5 +1,5 @@
 <template>
-  <v-app class="hero-app">
+  <v-app>
     <v-chip-group class="hero-chip-group" column multiple :value="getFilters('grade')">
       <v-chip
         v-for="grade in grades"
@@ -80,20 +80,10 @@ export default {
 .v-application--wrap {
   min-height: auto;
 }
-.hero-app {
-  /* height: 85px; */
-}
-.hero-chip-group {
-  /* max-width: 380px; */
-}
 .hero-chip-group .v-chip__content {
   display: inline-grid;
   margin: auto;
   width: 20px;
   text-align: center;
-}
-
-p, b {
-  color: #205089;
 }
 </style>

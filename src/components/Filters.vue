@@ -61,7 +61,7 @@
       <v-flex xs12>
         <div class="d-flex">
           <v-chip class="ml-4 mb-2" small text @click="clearFilters">{{ locale.clearFilters }}</v-chip>
-          <span class="ml-2">{{ locale.schoolsShown }}: <b>{{ schools }}</b></span>
+          <span class="body-2 ml-4">{{ locale.schoolsShown }}: <b class="primary--text">{{ schools }}</b></span>
         </div>
       </v-flex>
     </v-layout>
@@ -116,22 +116,16 @@ export default {
 
 
 <style scoped>
-
 @media ( max-width: 599px ) {
-  h2.title.mb-2 {
-    color: #222;
+  h2.title {
     font-size: .875rem !important;
-    font-weight: 400;
+    font-weight: 500;
     line-height: 1;
     margin-bottom: 0 !important;
-    margin-top: 0;
   }
   .filters .v-card__text {
     padding-bottom: 0;
     padding-top: 15px;
-  }
-  .filters .v-card__text:last-of-type {
-    padding-bottom: 10px;
   }
 }
 </style>
