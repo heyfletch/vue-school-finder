@@ -12,11 +12,20 @@
       </v-flex>
       <v-flex xs12 sm6 md12>
         <v-card-text>
-          <h2 class="title mb-2">{{ locale.extendedCare }}</h2>
+          <h2 class="title mb-2">{{ locale.neighborhood }}</h2>
 
-          <v-chip-group column multiple :value="getFilters('careNeeds')">
-            <v-chip outlined small color="primary" value="Before Care" @click="toggleFilter('careNeeds', 'Before Care')">{{ locale.beforeCare }}</v-chip>
-            <v-chip outlined small color="primary" value="After Care" @click="toggleFilter('careNeeds', 'After Care')">{{ locale.afterCare }}</v-chip>
+          <v-chip-group column :value="getFilters('neighborhood')[0]">
+            <v-chip
+              v-for="neighborhood in neighborhoods"
+              :key="neighborhood"
+              :value="neighborhood"
+              outlined
+              small
+              color="primary"
+              @click="toggleFilter('neighborhood', neighborhood)"
+            >
+              {{ neighborhood }}
+            </v-chip>
           </v-chip-group>
         </v-card-text>
       </v-flex>
@@ -41,20 +50,11 @@
       </v-flex>
       <v-flex xs12 sm6 md12>
         <v-card-text>
-          <h2 class="title mb-2">{{ locale.neighborhood }}</h2>
+          <h2 class="title mb-2">{{ locale.extendedCare }}</h2>
 
-          <v-chip-group column :value="getFilters('neighborhood')[0]">
-            <v-chip
-              v-for="neighborhood in neighborhoods"
-              :key="neighborhood"
-              :value="neighborhood"
-              outlined
-              small
-              color="primary"
-              @click="toggleFilter('neighborhood', neighborhood)"
-            >
-              {{ neighborhood }}
-            </v-chip>
+          <v-chip-group column multiple :value="getFilters('careNeeds')">
+            <v-chip outlined small color="primary" value="Before Care" @click="toggleFilter('careNeeds', 'Before Care')">{{ locale.beforeCare }}</v-chip>
+            <v-chip outlined small color="primary" value="After Care" @click="toggleFilter('careNeeds', 'After Care')">{{ locale.afterCare }}</v-chip>
           </v-chip-group>
         </v-card-text>
       </v-flex>
