@@ -10,6 +10,8 @@
   "dependencies": {
     "core-js": "^2.6.5",
     "graphql": "^14.4.2",
+    "raf": "^3.4.1",
+    "smoothscroll-polyfill": "^0.4.4",
     "vue": "^2.6.10",
     "vue2-google-maps": "^0.10.7",
     "vuetify": "^2.0.0",
