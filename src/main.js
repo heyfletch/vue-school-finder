@@ -17,7 +17,8 @@ Vue.component("GmapMarker", VueGoogleMaps.Marker);
 
 Vue.config.productionTip = false
 
-new Vue({
+
+window.mainApp = new Vue({
   vuetify,
   store,
   render: h => h(App)
