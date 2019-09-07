@@ -30,13 +30,8 @@ export default {
     }
   },
   mounted() {
-    // eslint-disable-next-line no-undef
-    for (let a of app) {
-      if (!a.classList.value.split(" ").includes("hero-app")) {
-        // This is the actual app
-        this.appHeight = a.getBoundingClientRect().top + window.scrollY;
-      }
-    }
+    // This is the actual app
+    this.appHeight = window.mainApp.$el.getClientRects()[0].top + window.pageYOffset;
   },
   methods: {
     hasFilter(type, value) {

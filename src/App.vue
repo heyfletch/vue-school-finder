@@ -68,7 +68,7 @@ export default {
   watch: {
     selectedSchool(newV) {
       if (this.isMobile) {
-        const rect = this.$refs.container.getBoundingClientRect();
+        const rect = this.$refs.container.getClientRects()[0];
         window.scrollBy(0, rect.top);
 
         const el = document.getElementById("hero-section");
