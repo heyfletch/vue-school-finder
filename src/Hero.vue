@@ -31,7 +31,7 @@ export default {
   },
   mounted() {
     // This is the actual app
-    this.appHeight = window.mainApp.$el.getBoundingClientRect().top + window.scrollY;
+    this.appHeight = window.mainApp.$el.getClientRects()[0].top + window.pageYOffset;
   },
   methods: {
     hasFilter(type, value) {
