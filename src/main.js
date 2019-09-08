@@ -19,6 +19,7 @@ Vue.use(VueGoogleMaps, {
 
 Vue.component("GmapMap", VueGoogleMaps.Map);
 Vue.component("GmapMarker", VueGoogleMaps.Marker);
+Vue.component("GmapInfoWindow", VueGoogleMaps.InfoWindow);
 
 Vue.config.productionTip = false
 

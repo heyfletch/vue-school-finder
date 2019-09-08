@@ -15,6 +15,14 @@
         @click="selectSchool(school)"
         :position="getLatLng(school)"
       ></GmapMarker>
+      <GmapInfoWindow
+        v-if="selectedSchool"
+        :opened="tooltipOpen"
+        @closeclick="tooltipOpen = false"
+        :position="getLatLng(selectedSchool)"
+        :options="{ content: selectedSchool.title, pixelOffset: { width: 0, height: -45 } }"
+      >
+      </GmapInfoWindow>
     </GmapMap>
   </v-card>
 </template>
@@ -35,6 +43,7 @@ export default {
   data() {
     return {
       zoom: 12,
+      tooltipOpen: false,
       initialCenter: {
         lat: 37.949996,
         lng: -122.334397
@@ -58,10 +67,12 @@ export default {
       if (newV) {
         this.center = this.getLatLng(newV);
         this.zoom = 15;
+        this.tooltipOpen = true;
       } else {
         this.zoom = 11;
         this.center = this.initialCenter;
         this.map.fitBounds(this.bounds);
+        this.tooltipOpen = false;
       }
     },
     schools(newV) {
