@@ -70,8 +70,8 @@ export default {
       if (this.isMobile) {
         setTimeout(() => {
           const rect = this.$refs.container.getClientRects()[0];
-          window.scrollTo(0, rect.top + window.pageYOffset);
-        }, 10);
+          window.scroll(0, rect.top + window.pageYOffset);
+        }, 100);
 
         const el = document.getElementById("hero-section");
         if (el) {
