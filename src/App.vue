@@ -69,7 +69,12 @@ export default {
     selectedSchool(newV) {
       if (this.isMobile) {
         const rect = this.$refs.container.getClientRects()[0];
-        window.scrollBy(0, rect.top);
+
+        // eslint-disable-next-line no-console
+        console.log(rect, window.pageYOffset);
+        
+        window.scrollTo(0, rect.top + window.pageYOffset);
+
 
         const el = document.getElementById("hero-section");
         if (el) {

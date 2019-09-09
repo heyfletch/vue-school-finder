@@ -20,18 +20,13 @@ export default {
     return {
       grades: [
         "TK", "K", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"
-      ],
-      appHeight: 0
+      ]
     };
   },
   computed: {
     locale() {
       return this.$store.state.locale;
     }
-  },
-  mounted() {
-    // This is the actual app
-    this.appHeight = window.mainApp.$el.getClientRects()[0].top + window.pageYOffset;
   },
   methods: {
     hasFilter(type, value) {
@@ -56,15 +51,16 @@ export default {
       this.$store.dispatch("removeFilter", { type, value });
     },
     scrollToFinder() {
+      const appHeight = window.mainApp.$el.getClientRects()[0].top + window.pageYOffset;
       try {
         window.scrollTo({
           left: 0,
-          top: this.appHeight,
+          top: appHeight,
           behavior: "smooth"
         });
       } catch {
         // Options probably unsupported, do it without.
-        window.scrollTo(0, this.appHeight);
+        window.scrollTo(0, appHeight);
       }
     }
   }
