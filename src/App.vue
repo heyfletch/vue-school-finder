@@ -68,13 +68,10 @@ export default {
   watch: {
     selectedSchool(newV) {
       if (this.isMobile) {
-        const rect = this.$refs.container.getClientRects()[0];
-
-        // eslint-disable-next-line no-console
-        console.log(rect, window.pageYOffset);
-        
-        window.scrollTo(0, rect.top + window.pageYOffset);
-
+        setTimeout(() => {
+          const rect = this.$refs.container.getClientRects()[0];
+          window.scrollTo(0, rect.top + window.pageYOffset);
+        }, 10);
 
         const el = document.getElementById("hero-section");
         if (el) {
