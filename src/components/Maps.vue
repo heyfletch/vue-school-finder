@@ -123,11 +123,10 @@ export default {
     color: #235290;
     padding: 15px 20px !important;
   }
-  .gm-style-iw.gm-style-iw-c button img {
-    background-color: #fff;
-    border-radius: 100%;
+  .gm-style-iw.gm-style-iw-c button {
+    display: none !important;
   }
   .gm-style .gm-style-iw-t::after {
-    background: none;
+    background: linear-gradient(45deg,rgba(255, 255, 255, 0.8) 50%,rgba(255,255,255,0) 51%,rgba(255,255,255,0) 100%);
   }
 </style>
