@@ -113,3 +113,21 @@ export default {
   }
 };
 </script>
+
+<style>
+  .gm-style-iw-d {
+    overflow: hidden !important;
+  }
+  .gm-style-iw.gm-style-iw-c {
+    background-color: #f4f4f4e8 !important;
+    color: #235290;
+    padding: 15px 20px !important;
+  }
+  .gm-style-iw.gm-style-iw-c button img {
+    background-color: #fff;
+    border-radius: 100%;
+  }
+  .gm-style .gm-style-iw-t::after {
+    background: none;
+  }
+</style>
