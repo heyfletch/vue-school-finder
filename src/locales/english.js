@@ -18,7 +18,7 @@ export default {
   no: "No",
   extendedCare: "Extended Care",
   neighborhood: "Area",
-  noSchoolsFound: "No schools with that criteria found.",
+  noSchoolsFound: "No schools match selected filters. Try removing one or more filters from your search.",
   goBack: "Back to schools",
   moreSchoolsHere: "View More",
   clearFilters: "Reset",

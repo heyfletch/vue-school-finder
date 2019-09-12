@@ -18,7 +18,7 @@ export default {
   no: "No",
   extendedCare: "Cuidado Extendido",
   neighborhood: "Zona",
-  noSchoolsFound: "No se encontraron escuelas con ese criterio.",
+  noSchoolsFound: "Ninguna escuela coincide con los filtros seleccionados. Intente eliminar uno o más filtros de su búsqueda.",
   goBack: "Volver a la lista",
   moreSchoolsHere: "Ver Más",
   clearFilters: "Restablecer",
