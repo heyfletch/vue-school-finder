@@ -17,7 +17,7 @@ export default {
   yes: "Sí",
   no: "No",
   extendedCare: "Cuidado Extendido",
-  neighborhood: "Vecindario",
+  neighborhood: "Zona",
   noSchoolsFound: "No se encontraron escuelas con ese criterio.",
   goBack: "Volver a la lista",
   moreSchoolsHere: "Ver Más",
