@@ -12,7 +12,7 @@ export default {
   enrollmentSize: "Matricula Total",
   learnMore: "Aprende más",
   applyNow: "Inscribirse",
-  applyLink: "https://enrollwcc.kinsta.cloud/es/como-inscribirse/",
+  applyLink: "https://enrollwcc.schoolmint.net/signup",
   none: "Nada",
   yes: "Sí",
   no: "No",
@@ -22,5 +22,5 @@ export default {
   goBack: "Volver a la lista",
   moreSchoolsHere: "Ver Más",
   clearFilters: "Restablecer",
-  schoolsShown: "Escuelas Mostradas",
+  schoolsShown: "Escuelas Mostradas"
 };
