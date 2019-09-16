@@ -17,7 +17,7 @@ export default {
   yes: "Yes",
   no: "No",
   extendedCare: "Extended Care",
-  neighborhood: "Area",
+  neighborhood: "Location",
   noSchoolsFound: "No schools match selected filters. Try removing one or more filters from your search.",
   goBack: "Back to schools",
   moreSchoolsHere: "View More",
