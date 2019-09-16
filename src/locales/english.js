@@ -11,7 +11,7 @@ export default {
   publicTransportation: "Public Transportation",
   enrollmentSize: "Enrollment Size",
   learnMore: "Learn More",
-  applyNow: "Apply Now",
+  applyNow: "Apply",
   applyLink: "https://enrollwcc.schoolmint.net/signup",
   none: "None",
   yes: "Yes",
