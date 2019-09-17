@@ -14,13 +14,15 @@ const LANG = lang.slice(0, 2).toUpperCase() === "ES" ? "ES" : "EN";
 
 Vue.use(Vuex);
 
-const QUERY_VERSION = 2;
+const QUERY_VERSION = 3;
 
 export default new Vuex.Store({
   state: {
     schools: [],
     filteredSchools: [],
     filters: [],
+    neighborhoodFilters: [],
+    transportFilters: [],
     selectedSchool: undefined,
     language: LANG,
     locale: locales[LANG]
@@ -45,6 +47,12 @@ export default new Vuex.Store({
     },
     setFilteredSchools(state, schools) {
       state.filteredSchools = schools;
+    },
+    setNeighborhoodFilters(state, neighborhoods) {
+      state.neighborhoodFilters = neighborhoods;
+    },
+    setTransportOptions(state, options) {
+      state.transportFilters = options;
     },
     addFilter(state, filter) {
       const filters = state.filters.slice();
@@ -72,7 +80,7 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    async getSchools({commit, state}) {
+    async getSchools({commit, dispatch, state}) {
       const storage = window.localStorage;
       const cached = JSON.parse(storage.getItem("schools"));
 
@@ -103,6 +111,19 @@ export default new Vuex.Store({
       }
 
       commit("setSchools", schools);
+      dispatch("generateFilters");
+    },
+    generateFilters({commit, state}) {
+      const schools = state.schools;
+
+      let neighborhoods = schools.map(sch => sch.acf.schoolNeighborhood);
+      neighborhoods = neighborhoods.filter((val, ind, arr) => arr.indexOf(val) === ind);
+      commit("setNeighborhoodFilters", neighborhoods);
+
+      let transportOptions = schools.reduce((acc, cur) => acc.concat(...cur.acf.schoolTransportation), []);
+      transportOptions = transportOptions.filter((val, ind, arr) => arr.indexOf(val) === ind);
+      transportOptions.sort();
+      commit("setTransportOptions", transportOptions);
     },
     clearFilters({commit, dispatch}) {
       commit("clearFilters");
