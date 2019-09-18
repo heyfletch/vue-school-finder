@@ -7,14 +7,12 @@ import locales from '../locales';
 import getSchools from "../graphql/getSchools"
 
 // Grab the 2 letter ISO code of the browser
-//const lang = navigator.language || navigator.userLanguage;
 const lang = document.documentElement.attributes["lang"].value;
 const LANG = lang.slice(0, 2).toUpperCase() === "ES" ? "ES" : "EN";
-//const LANG = "EN";
 
 Vue.use(Vuex);
 
-const QUERY_VERSION = 3;
+const QUERY_VERSION = 4;
 
 export default new Vuex.Store({
   state: {
@@ -100,8 +98,8 @@ export default new Vuex.Store({
         const obj = {
           schools,
           expires: Date.now() + 1000 * 60 * 60 * 24, // Expires in a day
-          queryVersion: QUERY_VERSION, // This is so we can force-update the data if we change the graphql query, like with the map coordinates.
-          language: state.language // Let's store this in case it changes.
+          queryVersion: QUERY_VERSION, // Changing this force-updates data if we change the graphql query
+          language: state.language // Let's store this in case it changes
         }
 
         storage.setItem("schools", JSON.stringify(obj));
