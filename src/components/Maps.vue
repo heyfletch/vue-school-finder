@@ -58,6 +58,7 @@ export default {
         fullscreenControl: false,
         streetViewControl: false,
         mapTypeControl: false,
+        clickableIcons: false,
         styles: [] // TODO maybe
       }
     };
