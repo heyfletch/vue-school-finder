@@ -90,7 +90,7 @@ export default new Vuex.Store({
       dispatch("ga", {
         category: "Schools List",
         action: fromMap ? "Map Click" : "Direct Click",
-        label: school
+        label: school.title
       })
     },
     async getSchools({commit, dispatch, state}) {
