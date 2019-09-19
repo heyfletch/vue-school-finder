@@ -83,7 +83,7 @@ export default {
   },
   methods: {
     selectSchool(school) {
-      this.$store.commit("selectSchool", school);
+      this.$store.dispatch("selectSchool", { school, fromMap: false });
     },
     selected(school) {
       return this.$store.state.selectedSchool === school;

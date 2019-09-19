@@ -78,7 +78,7 @@ export default {
   },
   methods: {
     gaHandler(btn, title) {
-      this.$store.dispatch("ga", {action: btn, school: title})
+      this.$store.dispatch("ga", {action: btn, label: title, category: "School Profile"})
     }
   }
 }

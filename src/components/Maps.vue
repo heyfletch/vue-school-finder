@@ -95,7 +95,7 @@ export default {
       };
     },
     selectSchool(school) {
-      this.$store.commit("selectSchool", school);
+      this.$store.dispatch("selectSchool", { school, fromMap: true });
     }
   },
   mounted() {

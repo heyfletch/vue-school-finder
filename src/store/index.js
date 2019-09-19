@@ -10,6 +10,13 @@ import getSchools from "../graphql/getSchools"
 const lang = document.documentElement.attributes["lang"].value;
 const LANG = lang.slice(0, 2).toUpperCase() === "ES" ? "ES" : "EN";
 
+const mapFiltersToGa = {
+  grade: "Grade",
+  careNeeds: "Care",
+  publicTrans: "Transport",
+  neighborhood: "Location"
+}
+
 Vue.use(Vuex);
 
 const QUERY_VERSION = 4;
@@ -78,6 +85,14 @@ export default new Vuex.Store({
     }
   },
   actions: {
+    selectSchool({commit, dispatch}, { school, fromMap }) {
+      commit("selectSchool", school);
+      dispatch("ga", {
+        category: "Schools List",
+        action: fromMap ? "Map Click" : "Direct Click",
+        label: school
+      })
+    },
     async getSchools({commit, dispatch, state}) {
       const storage = window.localStorage;
       const cached = JSON.parse(storage.getItem("schools"));
@@ -133,6 +148,11 @@ export default new Vuex.Store({
       }
       commit("addFilter", filter);
       dispatch("applyFilters");
+      dispatch("ga", {
+        category: "Filter",
+        label: filter.value,
+        action: mapFiltersToGa[filter.type]
+      })
     },
     removeFilter({commit, dispatch, getters}, filter) {
       const ind = getters.getFilter(filter.type, filter.value)
@@ -187,8 +207,8 @@ export default new Vuex.Store({
       try {
         // eslint-disable-next-line no-undef
         gtag("event", payload.action, {
-          event_category: "School Profile",
-          event_label: payload.school,
+          event_category: payload.category,
+          event_label: payload.label,
           transport: "beacon"
         });
       }
