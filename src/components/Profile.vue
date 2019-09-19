@@ -56,7 +56,7 @@
             </v-card-text>
 
             <v-card-actions class="ma-2 pt-2 pb-4">
-              <v-btn :href="locale.applyLink" @click="gaHandler('Apply', school.title)" flat depressed color="primary">{{ locale.applyNow }}</v-btn>
+              <v-btn :href="locale.applyLink" @click="gaHandler('Apply', school.title)" depressed color="primary">{{ locale.applyNow }}</v-btn>
               <v-btn :href="school.link" @click="gaHandler('Learn More', school.title)" text color="primary">{{ locale.learnMore }}</v-btn>
             </v-card-actions>
           </v-card>
