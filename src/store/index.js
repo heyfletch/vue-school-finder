@@ -19,7 +19,7 @@ const mapFiltersToGa = {
 
 Vue.use(Vuex);
 
-const QUERY_VERSION = 4;
+const QUERY_VERSION = 5;
 
 export default new Vuex.Store({
   state: {
