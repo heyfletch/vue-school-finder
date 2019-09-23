@@ -99,14 +99,14 @@ export default new Vuex.Store({
 
       let schools
       if (!cached || cached.expires < Date.now() || cached.language !== state.language || !cached.queryVersion || cached.queryVersion !== QUERY_VERSION) {
-        const resp = await (await fetch("https://enrollwcc.kinsta.cloud/graphql", {
-          method: 'POST',
+        const resp = await (await fetch("https://enrollwcc.org/graphql", {
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
+            "Content-Type": "application/json",
+            Accept: "application/json"
           },
           body: JSON.stringify({ query: getSchools, variables: { language: state.language } })
-        })).json()
+        })).json();
 
         schools = resp.data.schools.nodes;
 
